@@ -1,0 +1,12 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    margin:10px 60px;
+
+}
+.block{
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    margin:20px 60px;
+}
