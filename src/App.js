@@ -2,7 +2,9 @@ import './App.css';
 import Main from './components/main';
 import Navbar from './components/navbar';
 import SearchBlock from './components/searchBlock';
-import SearchTransaction from './components/searchTransaction'
+import SearchTransaction from './components/searchTransaction';
+import Footer from './components/footer';
+import Remarkabletxs from './components/remarkabletxs';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Main/>
       <SearchTransaction/>
       <SearchBlock/>
+      <Remarkabletxs/>
+      <Footer/>
     </div>
   );
 }
