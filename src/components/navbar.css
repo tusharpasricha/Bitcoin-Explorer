@@ -1,0 +1,14 @@
+.navbar{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.loginbtn{
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

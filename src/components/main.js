@@ -16,6 +16,7 @@ function Main() {
   }
   return (
     <div className="Main">
+      <h5>Recent Blocks</h5>
         <div className="head">
             <h4>Height</h4>
             <p>Timestamp</p>

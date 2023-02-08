@@ -13,8 +13,9 @@ const SearchTransaction = () => {
   return (
     <>
     <div>
-      <h2>Search for a Transaction</h2>
+      <br></br>
       <input
+      placeholder='Transaction Id'
       type="text"
       value={transactionId}
       onChange={(e)=>setTransactionId(e.target.value)}
@@ -23,7 +24,7 @@ const SearchTransaction = () => {
     </div>
     {transactionInfo && (
       <div>
-        <h2>Transaction information</h2>
+        <h4>Transaction information</h4>
           <p>Version: {transactionInfo.version}</p>
           <p>Locktime: {transactionInfo.locktime}</p>
           <p>Size: {transactionInfo.size}</p>

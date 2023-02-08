@@ -1,12 +1,14 @@
 .head{
     display: flex;
     justify-content: space-between;
-    margin:10px 60px;
+    margin:10px 20px;
 
 }
 .block{
-    background-color: blue;
+    background-color: rgb(243, 243, 243);
     display: flex;
     justify-content: space-between;
-    margin:20px 60px;
+    margin:1px 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

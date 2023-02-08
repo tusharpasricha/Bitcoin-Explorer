@@ -13,8 +13,8 @@ const SearchBlock = () => {
   return (
     <>
     <div>
-      <h2>Search for a Block</h2>
       <input
+      placeholder='Block hash'
       type="text"
       value={blockHash}
       onChange={(e)=>setblockHash(e.target.value)}
@@ -23,7 +23,7 @@ const SearchBlock = () => {
     </div>
     {blockInfo && (
       <div>
-        <h2>Block information</h2>
+        <h4>Block information</h4>
           <p>Height: {blockInfo.height}</p>
           <p>Version: {blockInfo.timestamp}</p>
           <p>Timestamp: {blockInfo.timestamp}</p>
