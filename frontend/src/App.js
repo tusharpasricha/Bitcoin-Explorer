@@ -8,6 +8,7 @@ import Remarkabletxs from './components/remarkabletxs';
 import {BrowserRouter, Routes,Route} from "react-router-dom";
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import Search from './components/search';
 
 function App() {
   return (
@@ -16,10 +17,13 @@ function App() {
       <Routes>
       <Route path="/" element={
           <>
+          
           <Navbar/>
+          <Search/>
           <Main/>
-          <SearchTransaction/>
-          <SearchBlock/>
+          {/* <SearchTransaction/>
+          <SearchBlock/> */}
+          
           <Remarkabletxs/>
           <Footer/>
           </>

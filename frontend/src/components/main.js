@@ -4,6 +4,7 @@ import React,{useState,useEffect} from 'react';
 
 function Main() {
   const [blocks,setblocks]=useState([])
+  const [selectedBlock,setselectedBlock]=useState(null)
   useEffect(() => {
     fetchblocks();
   }, [])
@@ -13,6 +14,12 @@ function Main() {
   const fetchblocks=async()=>{
     const response=await Axios('https://blockstream.info/api/blocks');
     setblocks(response.data)    
+  }
+
+  const fetchBlockInfo= async(blockId)=>{
+    const response = await Axios(`https://blockstream.info/api/block/${blockId}`);
+    setselectedBlock(response.data)
+    setblocks([response.data]);
   }
   return (
     <div className="Main">
@@ -29,8 +36,7 @@ function Main() {
       {
         blocks && blocks.map(block=>{
           return(
-            <div className="block"  key={block.id} >
-            <h4>{block.height}</h4>
+            <div className="block" key={block.id} onClick={()=>fetchBlockInfo(block.id)}>            <h4>{block.height}</h4>
             <p>{block.timestamp}</p>
             <p>{block.tx_count}</p>
             <p>{block.size}</p>
@@ -39,7 +45,19 @@ function Main() {
           )
 
         })
+        
       }
+      {
+          selectedBlock&&
+          <div>
+          <p><strong>Height:</strong> {selectedBlock.height}</p>
+          <p><strong>Timestamp:</strong> {selectedBlock.timestamp}</p>
+          <p><strong>Transaction count:</strong> {selectedBlock.tx_count}</p>
+          <p><strong>Size:</strong> {selectedBlock.size}</p>
+          <p><strong>Weight:</strong> {selectedBlock.weight}</p>
+
+          </div>
+        }
     </div>
  );
 }
