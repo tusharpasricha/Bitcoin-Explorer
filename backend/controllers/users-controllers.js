@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 const users = require("../models/users");
 const generateID = require('../utils/genID');
@@ -34,15 +35,31 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const user = users.find((user) => user.name === req.body.name);
-  if (user === undefined) return res.status(401).send("User not found.");
   try {
-    if (await bcrypt.compare(req.body.password, user.password))
-      res.send("Success, logged in.");
-    else res.send("Wrong password.");
-  } catch {
-    res.status(500).send();
+    const user = users.find((user) => user.name === req.body.name);
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid credentials.' });
+    }
+    const passwordMatch = await bcrypt.compare(req.body.password, user.password);
+    if (!passwordMatch) {
+      return res.status(401).json({ error: 'Invalid credentials.' });
+    }
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    res.json({ message: 'Success, logged in.', name:user.name ,token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error.' });
   }
 };
 
 module.exports = { register, login, getUsers };
+
+// const user = users.find((user) => user.name === req.body.name);
+// if (user === undefined) return res.status(401).json({ error: 'user not found' });
+// try {
+//   if (await bcrypt.compare(req.body.password, user.password))
+//   res.json({ message: 'Success, logged in.'});
+//   else res.status(500).json({ error: 'Internal server error.' });
+// } catch {
+//   res.status(500).send();
+// }
