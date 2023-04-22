@@ -34,7 +34,7 @@ const Login = () => {
                 setError(data.error);
               } else {
                 
-                navigation('/', { state: { name: data.name } });
+                navigation('/', { state: { name: data.name ,isLoggedIn: true } });
               }
         }
 
