@@ -1,3 +1,4 @@
+import React, { useState ,useEffect} from 'react';
 import './App.css';
 import Main from './components/main';
 import Navbar from './components/navbar';
@@ -11,7 +12,15 @@ import Signup from './auth/Signup';
 import Search from './components/search';
 import TransactionDescription from './components/TransactionDescription';
 import BlockDetails from './components/Blockdetails';
+import SearchResult from './components/SearchResult';
 function App() {
+  const [isTransaction, setIsTransaction] = useState(false);
+  useEffect(() => {
+    console.log('isTransaction updated', isTransaction);
+  }, [isTransaction]);
+  // const handleIsTransactionChange = (isTransaction) => {
+  //   setIsTransaction(isTransaction);
+  // };
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +29,7 @@ function App() {
           <>
           
           <Navbar/>
-          <Search/>
+          <Search setIsTransaction={setIsTransaction} />
           <Main/>
           {/* <SearchTransaction/>
           <SearchBlock/> */}
@@ -33,6 +42,8 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/block/:blockId" element={<BlockDetails/>} />
+        <Route path="/:searchResult/:query" element={<SearchResult isTransaction={isTransaction}/>} />
+
         <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
         
       </Routes>

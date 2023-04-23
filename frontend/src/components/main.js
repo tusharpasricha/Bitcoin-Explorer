@@ -2,6 +2,7 @@ import "./main.css"
 import Axios from 'axios'
 import { Link } from 'react-router-dom';
 import React,{useState,useEffect} from 'react';
+import Transactions from "./Transaction";
 
 function Main() {
   const [blocks,setblocks]=useState([])
@@ -36,7 +37,7 @@ function Main() {
       {
         blocks && blocks.map(block=>{
           return(
-            <Link key={block.id} to={`/block/${block.id}`}>
+            <Link style={{ textDecoration: 'none' }} key={block.id} to={`/block/${block.id}`}>
             <div className="block">
               <h4>{block.height}</h4>
               <p>{block.timestamp}</p>
@@ -51,6 +52,7 @@ function Main() {
         })
         
       }
+      {/* <Transactions/> */}
       
     </div>
  );

@@ -32,10 +32,10 @@ const Remarkabletxs = () => {
   };
 
   return (
-    <div>
-      <h2>Bitcoin Transactions</h2>
+    <div className='remarkabletxs'>
+      <p>Remarkable Transactions</p>
       {transactions.map((transaction) => (
-        <div key={transaction.hash} onClick={() => handleTransactionClick(transaction)}>
+        <div className='eachtxs' key={transaction.hash} onClick={() => handleTransactionClick(transaction)}>
           <h3>{transaction.title}</h3>
           <p>{transaction.hash}</p>
         </div>
