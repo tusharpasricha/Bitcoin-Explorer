@@ -1,5 +1,6 @@
 import "./main.css"
 import Axios from 'axios'
+import { Link } from 'react-router-dom';
 import React,{useState,useEffect} from 'react';
 
 function Main() {
@@ -16,11 +17,10 @@ function Main() {
     setblocks(response.data)    
   }
 
-  const fetchBlockInfo= async(blockId)=>{
-    const response = await Axios(`https://blockstream.info/api/block/${blockId}`);
-    setselectedBlock(response.data)
-    setblocks([response.data]);
-  }
+  // const fetchBlockInfo= async(blockId)=>{
+  //   const response = await Axios(`https://blockstream.info/api/block/${blockId}`);
+  //   setselectedBlock(response.data)
+  // }
   return (
     <div className="Main">
       <h5>Recent Blocks</h5>
@@ -36,28 +36,22 @@ function Main() {
       {
         blocks && blocks.map(block=>{
           return(
-            <div className="block" key={block.id} onClick={()=>fetchBlockInfo(block.id)}>            <h4>{block.height}</h4>
-            <p>{block.timestamp}</p>
-            <p>{block.tx_count}</p>
-            <p>{block.size}</p>
-            <p>{block.weight}</p>
-          </div>
+            <Link key={block.id} to={`/block/${block.id}`}>
+            <div className="block">
+              <h4>{block.height}</h4>
+              <p>{block.timestamp}</p>
+              <p>{block.tx_count}</p>
+              <p>{block.size}</p>
+              <p>{block.weight}</p>
+            </div>
+          </Link>
+          
           )
 
         })
         
       }
-      {
-          selectedBlock&&
-          <div>
-          <p><strong>Height:</strong> {selectedBlock.height}</p>
-          <p><strong>Timestamp:</strong> {selectedBlock.timestamp}</p>
-          <p><strong>Transaction count:</strong> {selectedBlock.tx_count}</p>
-          <p><strong>Size:</strong> {selectedBlock.size}</p>
-          <p><strong>Weight:</strong> {selectedBlock.weight}</p>
-
-          </div>
-        }
+      
     </div>
  );
 }

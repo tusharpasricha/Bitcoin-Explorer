@@ -9,7 +9,8 @@ import {BrowserRouter, Routes,Route} from "react-router-dom";
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import Search from './components/search';
-
+import TransactionDescription from './components/TransactionDescription';
+import BlockDetails from './components/Blockdetails';
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,8 @@ function App() {
         }/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/block/:blockId" element={<BlockDetails/>} />
+        <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
         
       </Routes>
       </BrowserRouter>
