@@ -3,7 +3,12 @@
     color: white;
     display: flex;
    
-    width: 100%;
+    width: 97.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .loginbtn{
     height: 30px;
@@ -11,13 +16,34 @@
     margin-bottom: 15px;
 }
 .searchbar{
-    width: 50%;
+    display: flex;
+    width: 45%;
     margin-top: 10px;
     margin-bottom: 10px;
+    justify-content: space-around;
+    align-items: center;
 }
 .searchbar input{
-    width: 80%;
+    width: 90%;
     background-color:#EADED9;
+    
     height: 5vh;
     border-radius: 15px;
+    padding-left: 15px;
+}
+.navbar2{
+    background-color: aliceblue;
+}
+.searchbar button{
+   height: 35px;
+   border-radius: 10px;
+   cursor: pointer;
+
+
+}
+.searchbar button:hover{
+    background-color: #254366;
+    color: white;
+    border-radius: 15px;
+
 }

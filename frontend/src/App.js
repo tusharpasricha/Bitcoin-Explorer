@@ -15,9 +15,14 @@ import BlockDetails from './components/Blockdetails';
 import SearchResult from './components/SearchResult';
 function App() {
   const [isTransaction, setIsTransaction] = useState(false);
+  const [SearchR, setSearchR] = useState({});
   useEffect(() => {
     console.log('isTransaction updated', isTransaction);
-  }, [isTransaction]);
+    console.log('data', SearchR);
+  }, [isTransaction ,SearchR]);
+  // useEffect(() => {
+  //   console.log('data', SearchR);
+  // }, [SearchR]);
   // const handleIsTransactionChange = (isTransaction) => {
   //   setIsTransaction(isTransaction);
   // };
@@ -29,7 +34,7 @@ function App() {
           <>
           
           <Navbar/>
-          <Search setIsTransaction={setIsTransaction} />
+          <Search setIsTransaction={setIsTransaction} setSearchR={setSearchR} />
           <Main/>
           {/* <SearchTransaction/>
           <SearchBlock/> */}
@@ -42,7 +47,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/block/:blockId" element={<BlockDetails/>} />
-        <Route path="/:searchResult/:query" element={<SearchResult isTransaction={isTransaction}/>} />
+        <Route path="/:searchResult/:query" element={<SearchResult isTransaction={isTransaction} SearchR={SearchR}/>} />
 
         <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
         

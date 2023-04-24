@@ -69,7 +69,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const Search = ({ setIsTransaction }) => { // history is a prop provided by react-router-dom
+const Search = ({ setIsTransaction ,setSearchR }) => { // history is a prop provided by react-router-dom
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState({});
   // const [isTransaction, setIsTransaction] = useState(false);
@@ -86,8 +86,11 @@ const Search = ({ setIsTransaction }) => { // history is a prop provided by reac
     } catch (error) {
       console.log('i am here')
       const transactionResult = await axios.get(`https://blockstream.info/api/tx/${searchQuery}`);
-      setSearchResult(transactionResult.data);
+      const jsonData = await transactionResult.data;
+      setSearchResult(jsonData);
+      setSearchR(jsonData)
       setIsTransaction(true);
+      console.log(jsonData)
       // console.log(isTransaction)
       navigate(`/tx/${searchQuery}`);
     }

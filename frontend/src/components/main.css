@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100&display=swap');
 .Main{
     background-color: #171717;
     color: white;
     width: 70%;
     border-radius: 20px;
     padding-bottom: 20px;
+    font-family: 'Pathway Extreme', sans-serif;
+
 }
 .head{
     display: flex;
@@ -28,7 +31,14 @@
     border-radius: 5px;   
     
 }
+.block:hover{
+    background-color: #254366
+}
+.out{
+    background-color: aliceblue;
+}
 .remarkabletxs{
+    /* background-color: aqua; */
     background-color: #171717;
     width: 70%;
     border-radius: 20px;
@@ -40,6 +50,8 @@
     justify-content: center;
     padding-top: 30px;
     padding-bottom: 30px;
+    font-family: 'Pathway Extreme', sans-serif;
+
 }
 .eachtxs{
     background-color: rgba(34, 34, 34, 0.76);
@@ -49,5 +61,22 @@
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    cursor: pointer;
+}
+.eachtxs:hover{
+    background-color: #254366
+
+
 }
 
+.txdesc{
+   
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Pathway Extreme', sans-serif;
+
+
+}
