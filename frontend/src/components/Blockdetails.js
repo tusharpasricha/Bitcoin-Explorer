@@ -18,6 +18,14 @@ function BlockDetails() {
         console.log(response.data)
       
   };
+  const handleCopyHash = () => {
+    navigator.clipboard.writeText(block.id);
+    alert(`Copied to clipboard!`);
+  };
+  const handleCopyPrevHash = () => {
+    navigator.clipboard.writeText(block.previousblockhash);
+    alert(`Copied to clipboard!`);
+  };
 
   return (
     <>
@@ -27,7 +35,7 @@ function BlockDetails() {
            <p> <Link style={{ color:'white' , alignItems:'left'}} to="/">Back</Link></p>
            <div className='eachtxs'>
             <h5>Hash: </h5>
-            <p> {block.id}</p>
+            <p> {block.id}<button className="copy"  onClick={handleCopyHash}><i className="fas fa-copy"></i></button></p>
             
           </div>
           <div className='eachtxs'>
@@ -82,7 +90,8 @@ function BlockDetails() {
           </div>
           <div className='eachtxs'>
             <h5>Previous Block Hash:  </h5>
-            <p> {block.previousblockhash}</p>
+            <p> {block.previousblockhash}<button className="copy"  onClick={handleCopyPrevHash}><i className="fas fa-copy"></i>
+</button></p>
             
           </div>
         </div>

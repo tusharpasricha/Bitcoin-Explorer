@@ -80,3 +80,25 @@
 
 
 }
+
+button.copy {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  button.copy:before {
+    content: "\e61d"; /* Unicode character for copy symbol */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  
+  button.copy:hover {
+    color: #000;
+  }
+  

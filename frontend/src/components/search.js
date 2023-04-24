@@ -84,16 +84,30 @@ const Search = ({ setIsTransaction ,setSearchR }) => { // history is a prop prov
       setIsTransaction(false);
       navigate(`/block/${searchQuery}`);
     } catch (error) {
-      console.log('i am here')
-      const transactionResult = await axios.get(`https://blockstream.info/api/tx/${searchQuery}`);
-      const jsonData = await transactionResult.data;
-      setSearchResult(jsonData);
-      setSearchR(jsonData)
-      setIsTransaction(true);
-      console.log(jsonData)
-      // console.log(isTransaction)
-      navigate(`/tx/${searchQuery}`);
+      try{
+
+      const height = parseInt(searchQuery);
+        if (!isNaN(height)) {
+          const blockHashResult = await axios.get(`https://blockstream.info/api/block-height/${height}`);
+          console.log(blockHashResult)
+          const blockHash = blockHashResult.data;
+          console.log(blockHash)
+          const blockResult = await axios.get(`https://blockstream.info/api/block/${blockHash}`);
+          setSearchResult(blockResult.data);
+          setIsTransaction(false);
+          navigate(`/block/${blockHash}`);
+        } else {
+          const transactionResult = await axios.get(`https://blockstream.info/api/tx/${searchQuery}`);
+          const jsonData = await transactionResult.data;
+          setSearchResult(jsonData);
+          setSearchR(jsonData);
+          setIsTransaction(true);
+          navigate(`/tx/${searchQuery}`);
+        }
+    }catch(error){
+      console.log('No matching block, transaction, or address found.');
     }
+  }
     
   };
 

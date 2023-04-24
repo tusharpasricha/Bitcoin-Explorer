@@ -21,12 +21,12 @@ const transactions = [
     title: 'The $1 Billion Transaction',
     hash: '74f7dc5dc83e84fc8443f95b9d9e583a7f2ade264c3b3dbce4913f931fc7eada',
     description: 'In November 2020, an unknown individual moved 88,857 bitcoins, worth approximately $1 billion at the time, in a single transaction. The identity of the sender and the reason for the transaction remain unknown.'
-  },
-  {
-    title: 'imtitle',
-    hash: 'imhash',
-    description: 'imdesc'
   }
+  //, {
+  //   title: 'imtitle',
+  //   hash: 'imhash',
+  //   description: 'imdesc'
+  // }
 ];
 
 const Remarkabletxs = () => {
