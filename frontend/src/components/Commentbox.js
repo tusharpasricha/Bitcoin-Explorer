@@ -32,14 +32,14 @@ class Commentbox extends Component {
           onChange={handleCommentValue}
           type="text"
           placeholder="Add a comment..."
-          disabled={enableCommentBox()}
+          // disabled={enableCommentBox()}
         />
         <button
           onClick={submitCommentLine}
           type="submit"
           className="comments-button btn btn-outline-primary"
           id={changeCommentButtonStyle()}
-          disabled={enableCommentButton()}
+          // disabled={enableCommentButton()}
         >
           Post
         </button>

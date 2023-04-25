@@ -8,6 +8,7 @@ import CommentMain from "./CommentMain";
 
 function TransactionDescription() {
   const location = useLocation();
+  const username = location?.state?.name || '';
   const navigation = useNavigate();
   const { description, title, hash } = useParams();
   console.log("i am desc" + description);
@@ -39,7 +40,8 @@ function TransactionDescription() {
       console.log("you can comment");
     } else {
       // navigate to login page
-      navigation("/login");
+      console.log("to bepassed"+title);
+      navigation("/login" ,{state : {title:title ,hash:hash ,description:description}});
     }
   };
   const isLoggedIn = location?.state?.isLoggedIn;
@@ -125,7 +127,7 @@ function TransactionDescription() {
           onClick={handleCommentClick}
           className="profile-btn btn btn-primary"
         >
-          Add a comment
+          Add a comment as {username}
         </button>
       ) : (
         <button
