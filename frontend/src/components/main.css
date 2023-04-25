@@ -101,4 +101,11 @@ button.copy {
   button.copy:hover {
     color: #000;
   }
+
+  .commentbox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   

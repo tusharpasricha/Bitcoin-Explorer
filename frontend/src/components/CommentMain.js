@@ -56,32 +56,31 @@ class CommentMain extends Component {
   //     this.setState({ username: this.props.username });
   //   }
   // }
-  
+  fetchedcomments = async () => {
+    console.log("iiii")
+    const response = await Axios.get(
+      `http://localhost:5000/api/posts/${this.state.tx_hash}/viewcomments`
+    );
+    console.log("this is fetched comment response" + response);
+    this.setState({ commentsarray: [...response.data] });
+  };
+
 
   componentDidMount() {
+
+
     console.log("inside component did mount")
-     const fetchedcomments = async () => {
-       const response = await Axios(
-         `http://localhost:5000/api/posts/${this.tx_hash}/viewcomments`
-       );
-       console.log("this is fetched comment response" + response);
-       this.setState({ commentsarray: [...response] });
-     };
-    fetchedcomments();
     this.setState({
       isLoggedIn: this.props.isLoggedIn,
       tx_hash: this.props.tx_hash,
-      username:this.props.username,
-    });
-    
+      username: this.props.username,
+    }, () => {
+      console.log(this.state.tx_hash);
+     this.fetchedcomments();
+    }); 
 
-    // fetch(`http://localhost:5000/api/posts/${this.tx_hash}/viewcomments`).then(
-    //   (res) => {
-    //     console.log("Inside fetch")
-    //     console.log(res);
-    //     this.setState({ commentsarray: [...res] })
-    //   });
-    // console.log(this.commentsarray);
+     
+   
       }
   render() {
     return (

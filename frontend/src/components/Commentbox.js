@@ -24,8 +24,10 @@ class Commentbox extends Component {
         : "comments-button disabled";
     };
     return (
-      <div className="mb-3 mt-3 comments-box">
+      <div className="commentbox">
         <label for="comment">Leave a comment as {username}:</label>
+        
+          <div className="searchbar">
         <input
           onKeyDown={enterCommentLine}
           value={commentValue}
@@ -42,8 +44,11 @@ class Commentbox extends Component {
           id={changeCommentButtonStyle()}
           // disabled={enableCommentButton()}
         >
+
           Post
         </button>
+        
+        </div>
       </div>
     );
   }
