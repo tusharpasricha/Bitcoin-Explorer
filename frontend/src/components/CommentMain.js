@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Commentbox from "./Commentbox";
 import Comment from "./Comment";
+import Axios from 'axios';
 
 let commentCounter = 1;
 
@@ -12,7 +13,8 @@ class CommentMain extends Component {
       commentLine: [{ commentId: "", text: "" }],
       isLoggedIn: false,
       tx_hash: 0,
-      username:" "
+      username: "",
+      commentsarray:[]
     };
   }
 
@@ -43,30 +45,44 @@ class CommentMain extends Component {
     }
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isLoggedIn !== this.state.isLoggedIn) {
-      this.setState({ isLoggedIn: this.props.isLoggedIn });
-    }
-    if (prevState.tx_hash !== this.state.tx_hash) {
-      this.setState({ tx_hash: this.props.tx_hash });
-    }
-    if (prevState.username !== this.state.username) {
-      this.setState({ username: this.props.username });
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.isLoggedIn !== this.state.isLoggedIn) {
+  //     this.setState({ isLoggedIn: this.props.isLoggedIn });
+  //   }
+  //   if (prevState.tx_hash !== this.state.tx_hash) {
+  //     this.setState({ tx_hash: this.props.tx_hash });
+  //   }
+  //   if (prevState.username !== this.state.username) {
+  //     this.setState({ username: this.props.username });
+  //   }
+  // }
+  
 
   componentDidMount() {
+    console.log("inside component did mount")
+     const fetchedcomments = async () => {
+       const response = await Axios(
+         `http://localhost:5000/api/posts/${this.tx_hash}/viewcomments`
+       );
+       console.log("this is fetched comment response" + response);
+       this.setState({ commentsarray: [...response] });
+     };
+    fetchedcomments();
     this.setState({
       isLoggedIn: this.props.isLoggedIn,
       tx_hash: this.props.tx_hash,
       username:this.props.username,
     });
-    fetch(`/api/posts/${this.tx_hash}/viewcomments`).then((res) => {
-      console.log(res);
-      return res.json();
-    });
-  }
+    
 
+    // fetch(`http://localhost:5000/api/posts/${this.tx_hash}/viewcomments`).then(
+    //   (res) => {
+    //     console.log("Inside fetch")
+    //     console.log(res);
+    //     this.setState({ commentsarray: [...res] })
+    //   });
+    // console.log(this.commentsarray);
+      }
   render() {
     return (
       <div>

@@ -13,6 +13,7 @@ function Main() {
   useEffect(() => {
     console.log(blocks)
   }, [blocks])
+  
   const fetchblocks=async()=>{
     const response=await Axios('https://blockstream.info/api/blocks');
     setblocks(response.data)    
