@@ -1,12 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 const Login = () => {
     
 
     const [error, setError] = useState('');
+    const location = useLocation();
     const navigation = useNavigate();
     const [loading, setLoading] = useState(false);
+    const state = location.state;
+    // hash-->title
+    // description--->hash
+    // title------>description ---->dontknowwhy
+    const description = location.state.title;
+    const hash = location.state.description;
+    const title = location.state.hash;
+    console.log("reciede"+location.state.title);
 
     const submitHandler = async (e) => {
         setLoading(true);
@@ -34,7 +43,7 @@ const Login = () => {
                 setError(data.error);
               } else {
                 
-                navigation('/transaction/:title/:hash', { state: { name: data.name ,isLoggedIn: true } });
+                navigation(`/transactions/${description}/${title}/${title}`, { state: { name: data.name ,isLoggedIn: true } });
             }
         }
 
