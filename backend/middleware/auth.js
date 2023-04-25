@@ -1,4 +1,5 @@
 const passport = require('passport');
+const jwt=require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const initPassport = require('../config/passport-config');
 const users = require('../models/users');
