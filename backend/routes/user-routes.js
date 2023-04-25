@@ -14,9 +14,6 @@ router.use(
   })
 );
 
-router.use(passport.initialize());
-router.use(passport.session());
-
 router.use(express.json());
 
 router.get("/", usersControllers.getUsers);

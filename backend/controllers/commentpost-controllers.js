@@ -7,13 +7,21 @@ const getPosts = (req, res) => {
   return res.status(200).send(posts);
 };
 
+const getPostbyHash = (req, res) => {
+  const hash = req.params.hash;
+  const requestedpost = posts.find((post) => post.hash === hash);
+  if (requestedpost === undefined)
+    return res.status(404).send("Post not found");
+  return res.status(200).send(requestedpost);
+}
+
 const comment = (req, res) => {
-    const pid = req.params.postid;
-    const requestedpost = posts.find(post => post.postid === pid);
+    const hash = req.params.hash;
+    const requestedpost = posts.find(post => post.hash === hash);
     if (requestedpost === undefined)
         return res.status(404).send('Post not found');
     const cid = generateId();
-    const newcomment = { commentid: cid, postid: pid, userid:req.user.id, thecomment: req.body.comment };
+    const newcomment = { commentid: cid, post_hash: hash, userid:req.user.id, thecomment: req.body.comment };
     comments.push(newcomment);
     requestedpost.commentsarray.push(cid);
     return res.status(201).send({
@@ -23,14 +31,14 @@ const comment = (req, res) => {
 };
 
 const viewcomments = (req, res) => {
-  const requestedpostid = req.params.id;
-  const retpost = posts.find((post) => post.postid === requestedpostid);
+  const requestedposthash = req.params.hash;
+  const retpost = posts.find((post) => post.hash === requestedposthash);
   if (retpost === undefined)
     return res.status(404).send("Sorry, we couldn't find that post.");
   const commentsarray = comments.filter(
-    (comment) => comment.postid === requestedpostid
+    (comment) => comment.post_hash === requestedposthash
   );
   return res.status(200).send(commentsarray);
 };
 
-module.exports = { getPosts, comment, viewcomments };
+module.exports = { getPosts, getPostbyHash,comment, viewcomments };
