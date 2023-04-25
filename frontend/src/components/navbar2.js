@@ -6,14 +6,15 @@ import { useLocation } from 'react-router-dom';
 const Navbar2 = () => {
   const location = useLocation();
   const username = location?.state?.name || '';
-  const isLoggedIn = location?.state?.isLoggedIn;
+  let isLoggedIn = location?.state?.isLoggedIn;
   const navigation = useNavigate();
   const submithandle=()=>{
     navigation('/login')
 
   }
   const submithandle2=()=>{
-    navigation('/login')
+    isLoggedIn=false;
+    navigation('/')
 
   }
   return (
