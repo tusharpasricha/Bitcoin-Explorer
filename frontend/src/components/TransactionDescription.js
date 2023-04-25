@@ -134,7 +134,7 @@ function TransactionDescription() {
         </button>
       )}
 
-      <CommentMain/>
+      <CommentMain isLoggedIn={isLoggedIn } />
     </div>
   );
 }

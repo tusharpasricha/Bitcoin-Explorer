@@ -10,6 +10,7 @@ class CommentMain extends Component {
     this.state = {
       commentValue: "",
       commentLine: [{ commentId: "", text: "" }],
+      isLoggedIn: this.props
     };
   }
 
@@ -48,6 +49,7 @@ class CommentMain extends Component {
           handleCommentValue={this.handleCommentValue}
           enterCommentLine={this.enterCommentLine}
           submitCommentLine={this.submitCommentLine}
+          isLoggedIn={this.state.isLoggedIn}
             />
             <Comment commentLine={this.state.commentLine} />
       </div>
