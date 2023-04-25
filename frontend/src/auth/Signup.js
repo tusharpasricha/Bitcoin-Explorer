@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+
 
 const Signup = () => {
 
     const [error, setError] = useState('');
     const navigation = useNavigate();
+    
+
 
     const submitHandler = async (e) => {
 
@@ -32,8 +36,9 @@ const Signup = () => {
             // handle response
             if (response.ok) {
                 // sign-up successful, redirect to login page or do something else
-                navigation('/login')
+                navigation("/")
                 console.log("Sign up successful");
+                alert("Sign Up Successful, Now you can LOGIN")
             } else {
                 // sign-up failed, display error message
                 console.log("Sign up failed");
@@ -52,7 +57,7 @@ const Signup = () => {
         <div className='getintouch' >
             
             <section className='login'>
-                <img src="img/signup.svg" alt="Signup" />
+                
                 <form onSubmit={submitHandler}>
                     {error && <div className='error'>{error}</div>}
                     <label>Name</label>
