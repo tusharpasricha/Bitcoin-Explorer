@@ -56,7 +56,7 @@ const Login = () => {
         <main className="dashboard">
         <div className="getintouch">
             <section className='login'>
-                <img src="img/login.svg" alt="Logo" />
+               
                 <form onSubmit={submitHandler}>
                     {error && <div className='error'>{error}</div>}
                     {loading && <div className='error'>Loading...</div>}

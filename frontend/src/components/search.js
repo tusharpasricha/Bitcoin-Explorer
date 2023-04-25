@@ -72,6 +72,7 @@ import { useNavigate } from 'react-router-dom';
 const Search = ({ setIsTransaction ,setSearchR }) => { // history is a prop provided by react-router-dom
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState({});
+
   // const [isTransaction, setIsTransaction] = useState(false);
   const navigate = useNavigate();
   const handleSearch = async () => {
