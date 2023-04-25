@@ -12,16 +12,16 @@ const transactions = [
     hash: 'a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d',
     description: 'On May 22, 2010, Laszlo Hanyecz paid 10,000 BTC for two pizzas, making it the first real-world purchase made with Bitcoin. This transaction is now famously known as "Bitcoin Pizza Day."'
   },
-  {
-    title: 'The Silk Road Seizure',
-    hash: '97c7a8d1d7c9c83ff0a1a1e3a914b75d3a0c43f6307e6c1e960d7b649f4d492b',
-    description: 'In October 2013, the FBI shut down the infamous dark web marketplace, Silk Road, and seized over 144,000 bitcoins from its founder, Ross Ulbricht. This seizure remains one of the largest Bitcoin transactions to date.'
-  },
-  {
-    title: 'The $1 Billion Transaction',
-    hash: '74f7dc5dc83e84fc8443f95b9d9e583a7f2ade264c3b3dbce4913f931fc7eada',
-    description: 'In November 2020, an unknown individual moved 88,857 bitcoins, worth approximately $1 billion at the time, in a single transaction. The identity of the sender and the reason for the transaction remain unknown.'
-  }
+  // {
+  //   title: 'The Silk Road Seizure',
+  //   hash: '97c7a8d1d7c9c83ff0a1a1e3a914b75d3a0c43f6307e6c1e960d7b649f4d492b',
+  //   description: 'In October 2013, the FBI shut down the infamous dark web marketplace, Silk Road, and seized over 144,000 bitcoins from its founder, Ross Ulbricht. This seizure remains one of the largest Bitcoin transactions to date.'
+  // },
+  // {
+  //   title: 'The $1 Billion Transaction',
+  //   hash: '74f7dc5dc83e84fc8443f95b9d9e583a7f2ade264c3b3dbce4913f931fc7eada',
+  //   description: 'In November 2020, an unknown individual moved 88,857 bitcoins, worth approximately $1 billion at the time, in a single transaction. The identity of the sender and the reason for the transaction remain unknown.'
+  // }
   //, {
   //   title: 'imtitle',
   //   hash: 'imhash',
