@@ -8,6 +8,7 @@ class Commentbox extends Component {
       enterCommentLine,
       submitCommentLine,
       isLoggedIn,
+      username,
     } = this.props;
 
     const enableCommentBox = () => {
@@ -24,7 +25,7 @@ class Commentbox extends Component {
     };
     return (
       <div className="mb-3 mt-3 comments-box">
-        <label for="comment">Leave a comment:</label>
+        <label for="comment">Leave a comment as {username}:</label>
         <input
           onKeyDown={enterCommentLine}
           value={commentValue}
