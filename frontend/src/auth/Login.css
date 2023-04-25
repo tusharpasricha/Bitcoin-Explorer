@@ -1,0 +1,144 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+  
+  :root{
+      --lightColor:#fff;
+      --darkColor: #eaeaea;
+      --buttonColor: #000;
+      --borderColor: #d0d0d0;
+      --headingColor: #000;
+      --textColor: #656a6f;
+      --circleColor: #21282f;
+  }
+  .home{
+    width: 100%;
+    /* background-color: red; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard{
+    /* background-color: green; */
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  .getintouch {
+      background-color: #E6DFF1;
+      padding: 10px;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+      width: 50%;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 20px;
+  
+  }
+  
+  .getintouch h2{
+      text-align: center;
+      margin: 30px;
+      font-family: 'Russo One', sans-serif;
+      color: var(--headingColor);
+  }
+  
+  form {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    border-color: var(--borderColor);
+    color: var(--headingColor);
+   
+}
+  
+  form label {
+      margin-bottom: 10px;
+  }
+  
+  form input, form select {
+      margin-bottom: 20px;
+      padding: 10px 10px;
+      border: 1px solid grey;
+      border-radius: 2px;
+      background: var(--darkColor);
+      color: var(--headingColor);
+      margin-bottom: 50px;
+  }
+  
+  form textarea {
+      margin-bottom: 30px;
+      background: var(--darkColor);
+  }
+  
+  form input[type="submit"] {
+      margin-bottom: 5px;
+      background: var(--buttonColor);
+      color: #fff;   
+  }
+  
+  .loading {
+      width: 30%;
+      text-align: center;
+      margin: auto;
+      padding: 10px;
+      font-weight: bold;
+      font-family: 'Roboto';
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  
+  .link {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .link a {
+    color: rgb(104, 104, 212);
+  }
+  
+  
+  .login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    height: 100%;
+  }
+  
+  .login img {
+    width: 10rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+  }
+  
+  .error {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: rgba(255, 0, 0, 0.507);
+    font-family: "Roboto";
+  }
+ 
+  
+
+  
+  

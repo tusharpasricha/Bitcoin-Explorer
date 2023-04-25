@@ -1,14 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100&display=swap');
+.Main{
+    background-color: #171717;
+    color: white;
+    width: 70%;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    font-family: 'Pathway Extreme', sans-serif;
+
+}
 .head{
     display: flex;
     justify-content: space-between;
     margin:10px 20px;
+    
+    ;
 
 }
 .block{
-    background-color: rgb(243, 243, 243);
+    /* background-color: rgb(243, 243, 243); */
+    /* background-color:#EADED9; */
+    background-color: rgba(34, 34, 34, 0.76);
+
     display: flex;
     justify-content: space-between;
-    margin:1px 20px;
+    margin:1px 20px ;
     padding-left: 5px;
     padding-right: 5px;
+    text-decoration: none;
+    color: rgb(224, 224, 224);
+    border-radius: 5px;   
+    
 }
+.block:hover{
+    background-color: #254366
+}
+.out{
+    background-color: aliceblue;
+}
+.remarkabletxs{
+    /* background-color: aqua; */
+    background-color: #171717;
+    width: 70%;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Pathway Extreme', sans-serif;
+
+}
+.eachtxs{
+    background-color: rgba(34, 34, 34, 0.76);
+    width: 90%;
+    margin:1px 20px ;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.eachtxs:hover{
+    background-color: #254366
+
+
+}
+
+.txdesc{
+   
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Pathway Extreme', sans-serif;
+
+
+}
+
+button.copy {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  button.copy:before {
+    content: "\e61d"; /* Unicode character for copy symbol */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  
+  button.copy:hover {
+    color: #000;
+  }
+  
