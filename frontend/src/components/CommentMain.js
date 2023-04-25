@@ -12,6 +12,7 @@ class CommentMain extends Component {
       commentLine: [{ commentId: "", text: "" }],
       isLoggedIn: false,
       tx_hash: 0,
+      username:" "
     };
   }
 
@@ -42,25 +43,29 @@ class CommentMain extends Component {
     }
   };
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.isLoggedIn !== this.state.isLoggedIn) {
-  //     this.setState({ isLoggedIn: this.props.isLoggedIn });
-  //   }
-  //   if (prevState.tx_hash !== this.state.tx_hash) {
-  //     this.setState({ tx_hash: this.props.tx_hash });
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isLoggedIn !== this.state.isLoggedIn) {
+      this.setState({ isLoggedIn: this.props.isLoggedIn });
+    }
+    if (prevState.tx_hash !== this.state.tx_hash) {
+      this.setState({ tx_hash: this.props.tx_hash });
+    }
+    if (prevState.username !== this.state.username) {
+      this.setState({ username: this.props.username });
+    }
+  }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     isLoggedIn: this.props.isLoggedIn,
-  //     tx_hash: this.props.tx_hash,
-  //   });
-  //   fetch(`/api/posts/${this.tx_hash}/viewcomments`).then((res) => {
-  //     console.log(res);
-  //     return res.json();
-  //   });
-  // }
+  componentDidMount() {
+    this.setState({
+      isLoggedIn: this.props.isLoggedIn,
+      tx_hash: this.props.tx_hash,
+      username:this.props.username,
+    });
+    fetch(`/api/posts/${this.tx_hash}/viewcomments`).then((res) => {
+      console.log(res);
+      return res.json();
+    });
+  }
 
   render() {
     return (
@@ -71,6 +76,7 @@ class CommentMain extends Component {
           enterCommentLine={this.enterCommentLine}
           submitCommentLine={this.submitCommentLine}
           isLoggedIn={this.state.isLoggedIn}
+          username={this.state.username}
         />
         <Comment commentLine={this.state.commentLine} />
       </div>

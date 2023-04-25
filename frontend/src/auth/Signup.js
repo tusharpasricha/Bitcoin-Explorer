@@ -32,6 +32,7 @@ const Signup = () => {
             // handle response
             if (response.ok) {
                 // sign-up successful, redirect to login page or do something else
+                navigation('/login')
                 console.log("Sign up successful");
             } else {
                 // sign-up failed, display error message

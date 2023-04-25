@@ -123,6 +123,20 @@ function TransactionDescription() {
       </div>
 
       {isLoggedIn ? (
+         <CommentMain isLoggedIn={isLoggedIn} tx_hash={hash} username={username} />
+      ) : (
+        <button
+          onClick={handleCommentClick}
+          className="login-btn btn btn-secondary"
+        >
+          Log in to comment
+        </button>
+      )}
+
+     
+
+
+      {/* {isLoggedIn ? (
         <button
           onClick={handleCommentClick}
           className="profile-btn btn btn-primary"
@@ -136,9 +150,7 @@ function TransactionDescription() {
         >
           Log in to comment
         </button>
-      )}
-
-      <CommentMain isLoggedIn={isLoggedIn} tx_hash={hash} />
+      )} */}
     </div>
   );
 }

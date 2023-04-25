@@ -115,7 +115,7 @@ const Search = ({ setIsTransaction ,setSearchR }) => { // history is a prop prov
     <>
       <div className='searchbar'>
         <input
-          placeholder='Search by block hash or transaction id'
+          placeholder='Search by Block Height, Block Hash or Transaction Id'
           type='text'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
