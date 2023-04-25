@@ -4,6 +4,7 @@ import { useLocation , useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar2 from './navbar2';
+import CommentMain from './CommentMain'
 
 function TransactionDescription() {
     const location = useLocation();
@@ -132,6 +133,8 @@ function TransactionDescription() {
           Log in to comment
         </button>
       )}
+
+      <CommentMain/>
     </div>
   );
 }

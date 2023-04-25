@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get('/', commentpostControllers.getPosts);
 
-router.get('/:postid/viewcomments', commentpostControllers.viewcomments);
+router.get('/:hash/viewcomments', commentpostControllers.viewcomments);
 
-router.post('/:postid/comment',authenticate, commentpostControllers.comment);
+router.post('/:hash/comment',authenticate, commentpostControllers.comment);
 
 module.exports = router;

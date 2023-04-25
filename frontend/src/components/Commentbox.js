@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import './Commentbox.css'
+
 class Commentbox extends Component {
   render() {
     const {
