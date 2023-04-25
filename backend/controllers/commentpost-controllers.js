@@ -7,6 +7,14 @@ const getPosts = (req, res) => {
   return res.status(200).send(posts);
 };
 
+const getPostbyHash = (req, res) => {
+  const hash = req.params.hash;
+  const requestedpost = posts.find((post) => post.hash === hash);
+  if (requestedpost === undefined)
+    return res.status(404).send("Post not found");
+  return res.status(200).send(requestedpost);
+}
+
 const comment = (req, res) => {
     const hash = req.params.hash;
     const requestedpost = posts.find(post => post.hash === hash);
@@ -33,4 +41,4 @@ const viewcomments = (req, res) => {
   return res.status(200).send(commentsarray);
 };
 
-module.exports = { getPosts, comment, viewcomments };
+module.exports = { getPosts, getPostbyHash,comment, viewcomments };

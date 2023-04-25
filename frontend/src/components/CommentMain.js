@@ -10,7 +10,8 @@ class CommentMain extends Component {
     this.state = {
       commentValue: "",
       commentLine: [{ commentId: "", text: "" }],
-      isLoggedIn: this.props
+      isLoggedIn: false,
+      tx_hash: 0,
     };
   }
 
@@ -41,6 +42,26 @@ class CommentMain extends Component {
     }
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isLoggedIn !== this.state.isLoggedIn) {
+      this.setState({ isLoggedIn: this.props.isLoggedIn });
+    }
+    if (prevState.tx_hash !== this.state.tx_hash) {
+      this.setState({ tx_hash: this.props.tx_hash });
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      isLoggedIn: this.props.isLoggedIn,
+      tx_hash: this.props.tx_hash,
+    });
+    fetch(`/api/posts/${this.tx_hash}/viewcomments`).then((res) => {
+      console.log(res);
+      return res.json();
+    });
+  }
+
   render() {
     return (
       <div>
@@ -50,8 +71,8 @@ class CommentMain extends Component {
           enterCommentLine={this.enterCommentLine}
           submitCommentLine={this.submitCommentLine}
           isLoggedIn={this.state.isLoggedIn}
-            />
-            <Comment commentLine={this.state.commentLine} />
+        />
+        <Comment commentLine={this.state.commentLine} />
       </div>
     );
   }
