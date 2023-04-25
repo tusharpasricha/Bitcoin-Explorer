@@ -43,7 +43,7 @@ const Login = () => {
                 setError(data.error);
               } else {
                 
-                navigation(`/transactions/${description}/${title}/${title}`, { state: { name: data.name ,isLoggedIn: true } });
+                navigation(`/transactions/${description}/${title}/${hash}`, { state: { name: data.name ,isLoggedIn: true } });
             }
         }
 
