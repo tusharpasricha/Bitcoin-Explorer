@@ -5,7 +5,7 @@ const transactions = [
   {
     title: 'The First Bitcoin Transaction',
     hash: '4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b',
-    description: 'On January 12, 2009, the first-ever Bitcoin transaction took place between Satoshi Nakamoto and Hal Finney, a cryptographic pioneer. This transaction sent 10 bitcoins to Finney\'s wallet, marking the beginning of a new era in digital currency.'
+    description: 'The first Bitcoin transaction occurred on January 12, 2009. Satoshi Nakamoto, the unknown person or group who created Bitcoin, sent 10 bitcoins to Hal Finney, a well-known cryptographic activist, and early Bitcoin contributor. The transaction was made on the Bitcoin network and was recorded on the blockchain, which is a public ledger that keeps a record of all Bitcoin transactions. At the time, the value of 10 bitcoins was negligible, but today, it would be worth a significant amount of money. This transaction marked the beginning of the Bitcoin economy and paved the way for the development of other cryptocurrencies.'
   },
   {
     title: 'The Pizza Purchase',

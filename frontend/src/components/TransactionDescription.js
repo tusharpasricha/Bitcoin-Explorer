@@ -50,10 +50,12 @@ function TransactionDescription() {
     <div>
       <Navbar2 />
       <div className="txdesc">
-        <h3>{hash}</h3>
-        <h2>{title}</h2>
-
+        <div className="txdesctop">
+        <h2>{hash}</h2>
         <h3>{description}</h3>
+        <h3>{title}</h3>
+        
+        </div>
 
         <div className="remarkabletxs">
           <div className="eachtxs">
