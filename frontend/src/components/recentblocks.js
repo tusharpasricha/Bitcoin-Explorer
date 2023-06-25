@@ -1,10 +1,9 @@
-import "./main.css"
+import "./recentblocks.css"
 import Axios from 'axios'
 import { Link } from 'react-router-dom';
 import React,{useState,useEffect} from 'react';
-import Transactions from "./Transaction";
 
-function Main() {
+function RecentBlock() {
   const [blocks,setblocks]=useState([])
   const [selectedBlock,setselectedBlock]=useState(null)
   useEffect(() => {
@@ -18,11 +17,6 @@ function Main() {
     const response=await Axios('https://blockstream.info/api/blocks');
     setblocks(response.data)    
   }
-
-  // const fetchBlockInfo= async(blockId)=>{
-  //   const response = await Axios(`https://blockstream.info/api/block/${blockId}`);
-  //   setselectedBlock(response.data)
-  // }
   return (
     <div className="Main">
       <h5>Recent Blocks</h5>
@@ -53,10 +47,9 @@ function Main() {
         })
         
       }
-      {/* <Transactions/> */}
       
     </div>
  );
 }
 
-export default Main;
+export default RecentBlock;

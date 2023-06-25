@@ -1,59 +1,48 @@
-import React, { useState ,useEffect} from 'react';
-import './App.css';
-import Main from './components/main';
-import Navbar from './components/navbar';
-import SearchBlock from './components/searchBlock';
-import SearchTransaction from './components/searchTransaction';
-import Footer from './components/footer';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from './staticComponents/navbar';
+import Footer from './staticComponents/footer';
 import Remarkabletxs from './components/remarkabletxs';
-import {BrowserRouter, Routes,Route} from "react-router-dom";
 import Login from './auth/Login';
 import Signup from './auth/Signup';
-import Search from './components/search';
+import Search from './search/search';
 import TransactionDescription from './components/TransactionDescription';
 import BlockDetails from './components/Blockdetails';
-import SearchResult from './components/SearchResult';
+import TransactionDetails from './search/Transactiondetails'
+import './App.css';
+import RecentBlock from './components/recentblocks';
+
+
 function App() {
-  const [isTransaction, setIsTransaction] = useState(false);
   const [SearchR, setSearchR] = useState({});
   useEffect(() => {
-    console.log('isTransaction updated', isTransaction);
     console.log('data', SearchR);
-  }, [isTransaction ,SearchR]);
-  // useEffect(() => {
-  //   console.log('data', SearchR);
-  // }, [SearchR]);
-  // const handleIsTransactionChange = (isTransaction) => {
-  //   setIsTransaction(isTransaction);
-  // };
+  }, [SearchR]);
+ 
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
-      <Route path="/" element={
-          <>
-          
-          <Navbar/>
-          <Search setIsTransaction={setIsTransaction} setSearchR={setSearchR} />
-          <Main/>
-          {/* <SearchTransaction/>
-          <SearchBlock/> */}
-          
-          <Remarkabletxs/>
-          <Footer/>
-          </>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <Search setSearchR={setSearchR} />
+              <RecentBlock/>
+              <Remarkabletxs />
+              <Footer />
+            </>
 
-        }/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/block/:blockId" element={<BlockDetails/>} />
-        <Route path="/:searchResult/:query" element={<SearchResult isTransaction={isTransaction} SearchR={SearchR}/>} />
+          } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/block/:blockId" element={<BlockDetails />} />
+          <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
 
-        <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
-        
-      </Routes>
+          <Route path="/tx/:query" element={<TransactionDetails SearchR={SearchR} />} />
+
+        </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }

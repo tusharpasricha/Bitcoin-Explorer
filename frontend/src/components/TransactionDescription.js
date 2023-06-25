@@ -3,8 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar2 from "./navbar2";
-import CommentMain from "./CommentMain";
+import Navbar2 from "../comments/navbar2";
+import CommentMain from "../comments/CommentMain";
 
 function TransactionDescription() {
   const location = useLocation();
