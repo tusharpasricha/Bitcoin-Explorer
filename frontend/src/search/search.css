@@ -109,9 +109,9 @@
   
   .btn-icon-content {
     width: 52px;
-    height: 35px;
-    top: -6px;
-    right: -21px;
+    height: 45px;
+    top: 0px;
+    right:0px;
     background: transparent;
     border: none;
     cursor: pointer;

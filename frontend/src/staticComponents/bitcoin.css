@@ -1,12 +1,14 @@
 .coin {
-    font-size: 200px;
+    font-size: 50px;
     width: 0.1em;
-    height: 1em;
+    height: 0.1em;
     background: linear-gradient(#faa504, #141001);
-    margin-top: 60px;
+    margin-left: 165px;
+    margin-top: 5px;
     position: absolute;
     top: 0;
     left: 0;
+    
    
     animation: rotate_4001510 7s infinite linear;
     transform-style: preserve-3d;
