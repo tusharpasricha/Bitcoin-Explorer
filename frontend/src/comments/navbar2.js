@@ -6,15 +6,15 @@ import { useParams } from "react-router-dom";
 
 const Navbar2 = () => {
   const location = useLocation();
-  const username = location?.state?.name || '';
   const navigation = useNavigate();
   const { description, title, hash } = useParams();
   let isLoggedIn = location?.state?.isLoggedIn;
-  const submithandle=()=>{
+  const email = location?.state?.email;
+  const handlelogin=()=>{
     navigation('/login',{state : {title:title ,hash:hash ,description:description}})
 
   }
-  const submithandle2=()=>{
+  const handlelogout=()=>{
     isLoggedIn=false;
     navigation('/')
 
@@ -22,8 +22,8 @@ const Navbar2 = () => {
   return (
     <div className='navbar'>
         <h4>Bitcoin Explorer</h4>
-       
-        {isLoggedIn?<button onClick={submithandle2} className='loginbtn'>Log Out</button>:<button onClick={submithandle} className='loginbtn'>Log in</button>}
+        {email?<div>{email}</div>:null}
+        {isLoggedIn?<button onClick={handlelogout} className='loginbtn'>Log Out</button>:<button onClick={handlelogin} className='loginbtn'>Log in</button>}
     </div>
   )
 }

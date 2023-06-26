@@ -18,19 +18,19 @@ const Signup = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const confirmPassword = e.target.confirmPassword.value;
+        const password_confirmation = e.target.password_confirmation.value;
 
         let uid;
-        if(!password || !confirmPassword || !name || !email)
+        if(!password || !password_confirmation || !name || !email)
         {
             return setError('Some Field is Empty');
         }
         else{
             // make a POST request to sign up user
-         const response = await fetch("http://localhost:5000/api/users/register", {
+         const response = await fetch("http://localhost:8000/api/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name,  email,password }),
+                body: JSON.stringify({ name,email,password,password_confirmation }),
             });
   
             // handle response
@@ -70,7 +70,7 @@ const Signup = () => {
                     <input type="password" name="password" />
 
                     <label>Confirm Password</label>
-                    <input type="password" name="confirmPassword" />
+                    <input type="password" name="password_confirmation" />
                     <input type="submit" value="Sign up" />
                     <p className='link'>Already Have an account <Link to="/login">Login</Link></p>
                 </form>

@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 const Login = () => {
-    
-
     const [error, setError] = useState('');
     const location = useLocation();
     const navigation = useNavigate();
@@ -22,33 +20,31 @@ const Login = () => {
         e.preventDefault();
         setError('');
 
-        const name = e.target.name.value;
+        const email = e.target.email.value;
         const password = e.target.password.value;
 
-        if(!password || !name) {
+        if(!password || !email) {
             setLoading(false);
             return setError('Some Field is empty');
         }
         else{
-            const response = await fetch('http://localhost:5000/api/users/login', {
+            const response = await fetch('http://localhost:8000/api/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name, password })
+            body: JSON.stringify({ email, password })
             });
             const data = await response.json();
-            console.log(data);
-            if (data.error) {
-                setError(data.error);
-              } else {
-                
-                navigation(`/transactions/${description}/${title}/${hash}`, { state: { name: data.name ,isLoggedIn: true } });
+            if(!response.ok){
+                console.log(data.error);
+            }
+            if (response.ok) {
+                console.log(data);
+                console.log(data.message.email);
+                navigation(`/transactions/${description}/${title}/${hash}`, { state: { email: data.message.email ,isLoggedIn: true } });
             }
         }
-
- 
-
     }
 
     return (
@@ -60,8 +56,8 @@ const Login = () => {
                 <form onSubmit={submitHandler}>
                     {error && <div className='error'>{error}</div>}
                     {loading && <div className='error'>Loading...</div>}
-                    <label>Username</label>
-                    <input type="string" name="name" />
+                    <label>Email</label>
+                    <input type="email" name="email" />
 
 
                     <label>Password</label>

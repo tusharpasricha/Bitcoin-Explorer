@@ -8,13 +8,19 @@ import CommentMain from "../comments/CommentMain";
 
 function TransactionDescription() {
   const location = useLocation();
-  const username = location?.state?.name || '';
   const navigation = useNavigate();
+
+  const email = location?.state?.email || '';
+  const isLoggedIn = location?.state?.isLoggedIn;
+
+  console.log("email" + email);
+  console.log("isLoggedin" + isLoggedIn);
+
   const { description, title, hash } = useParams();
   console.log("i am desc" + description);
   console.log("i am title" + title);
-
   console.log("i am hash" + hash);
+
   // hash-->title
   // description--->hash
   // title------>description ---->dontknowwhy
@@ -34,6 +40,7 @@ function TransactionDescription() {
     }
     fetchTransaction();
   }, [description]);
+
   const handleCommentClick = () => {
     if (isLoggedIn) {
       // navigate to user's profile page
@@ -44,7 +51,6 @@ function TransactionDescription() {
       navigation("/login" ,{state : {title:title ,hash:hash ,description:description}});
     }
   };
-  const isLoggedIn = location?.state?.isLoggedIn;
 
   return (
     <div>
@@ -125,7 +131,7 @@ function TransactionDescription() {
       </div>
 
       {isLoggedIn ? (
-         <CommentMain isLoggedIn={isLoggedIn} tx_hash={hash} username={username} />
+         <CommentMain isLoggedIn={isLoggedIn} tx_hash={hash} email={email} />
       ) : (
         <button
           onClick={handleCommentClick}
