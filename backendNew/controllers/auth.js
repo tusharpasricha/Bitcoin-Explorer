@@ -1,10 +1,60 @@
 const User = require('../models/User');
+const Comment = require('../models/Comment')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const {
    createJWT,
 } = require("../utils/auth");
 const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+exports.comments = (req,res,next) =>{
+  let {comment, email, transaction } = req.body;
+  let errors = [];
+  if(!comment){
+    errors.push({comment:"required"});
+  }
+  if(!email){
+    errors.push({name:"required"})
+  }
+  if(!transaction){
+    errors.push({transaction:"required"})
+  }
+  const userComment = new Comment({
+    comment: comment,
+    email: email,
+    transaction: transaction,
+  });
+  userComment.save()
+             .then(response => {
+                res.status(200).json({
+                  success: true,
+                  result: response
+                })
+             })
+             .catch(err => {
+               res.status(500).json({
+                  errors: [{ error: err }]
+               });
+            });
+
+}
+
+exports.getAllComments = (req, res, next) => {
+  Comment.find()
+    .then(comments => {
+      res.status(200).json({
+        success: true,
+        comments: comments
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        errors: [{ error: err }]
+      });
+    });
+};
+
+
 exports.signup = (req, res, next) => {
   let { name, email, password, password_confirmation } = req.body;
   let errors = [];

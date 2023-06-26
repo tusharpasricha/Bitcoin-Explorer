@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar2 from "../comments/navbar2";
-import CommentMain from "../comments/CommentMain";
+import { CommentBox } from "./CommentBox";
+import CommentList from "./CommentList";
 
 function TransactionDescription() {
   const location = useLocation();
@@ -54,15 +55,9 @@ function TransactionDescription() {
 
   return (
     <div>
+      
       <Navbar2 />
       <div className="txdesc">
-        <div className="txdesctop">
-        <h2>{hash}</h2>
-        <h3>{description}</h3>
-        <h3>{title}</h3>
-        
-        </div>
-
         <div className="remarkabletxs">
           <div className="eachtxs">
             <h5>Transaction ID </h5>
@@ -128,10 +123,20 @@ function TransactionDescription() {
             <p> {transaction?.status.block_time}</p>
           </div>
         </div>
+
+        <div className="txdesctop">
+        <h2>{hash}</h2>
+        <h3>{description}</h3>
+        <h3>{title}</h3>
+        </div> 
+
       </div>
 
+      
+      
+
       {isLoggedIn ? (
-         <CommentMain isLoggedIn={isLoggedIn} tx_hash={hash} email={email} />
+        <CommentBox transaction={description} email={email}/>
       ) : (
         <button
           onClick={handleCommentClick}
@@ -140,26 +145,11 @@ function TransactionDescription() {
           Log in to comment
         </button>
       )}
-
-     
-
-
-      {/* {isLoggedIn ? (
-        <button
-          onClick={handleCommentClick}
-          className="profile-btn btn btn-primary"
-        >
-          Add a comment as {username}
-        </button>
-      ) : (
-        <button
-          onClick={handleCommentClick}
-          className="login-btn btn btn-secondary"
-        >
-          Log in to comment
-        </button>
-      )} */}
+      <CommentList/>
+      
     </div>
+
+    
   );
 }
 
