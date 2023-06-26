@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./CommentList.css"
 
 const CommentList = () => {
   const [comments, setComments] = useState([]);
@@ -21,15 +22,17 @@ const CommentList = () => {
   };
 
   return (
-    <div>
+    <div className='outercomment'>
       <h1>Comments</h1>
       {comments.map((comment) => (
-        <div key={comment._id}>
-          <p>Comment: {comment.comment}</p>
-          <p>Email: {comment.email}</p>
-          <p>Transaction: {comment.transaction}</p>
-          <hr />
+
+        <div className='eachcomment' key={comment._id}>
+          <div className='text'>{comment.comment}</div>
+          <div className='by'>by {comment.email}</div>
+          {/* <p>Transaction: {comment.transaction}</p> */}
+          
         </div>
+
       ))}
     </div>
   );

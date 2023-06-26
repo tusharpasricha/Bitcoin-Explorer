@@ -57,7 +57,9 @@ function TransactionDescription() {
     <div>
       
       <Navbar2 />
+
       <div className="txdesc">
+      <h2>{hash}</h2>
         <div className="remarkabletxs">
           <div className="eachtxs">
             <h5>Transaction ID </h5>
@@ -125,9 +127,9 @@ function TransactionDescription() {
         </div>
 
         <div className="txdesctop">
-        <h2>{hash}</h2>
-        <h3>{description}</h3>
-        <h3>{title}</h3>
+        
+        {/* <h3>{description}</h3> */}
+        {title}
         </div> 
 
       </div>

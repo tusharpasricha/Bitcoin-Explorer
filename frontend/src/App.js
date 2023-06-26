@@ -12,6 +12,7 @@ import BlockDetails from './components/Blockdetails';
 import TransactionDetails from './search/Transactiondetails'
 import './App.css';
 import RecentBlock from './components/recentblocks';
+import { Bitcoin } from './staticComponents/bitcoin';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={
             <>
               <Navbar />
+              <Bitcoin/>
               <Search setSearchR={setSearchR} />
               <RecentBlock/>
               <Remarkabletxs />
