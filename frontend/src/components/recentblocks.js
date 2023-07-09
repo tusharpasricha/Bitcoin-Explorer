@@ -6,6 +6,8 @@ import React,{useState,useEffect} from 'react';
 function RecentBlock() {
   const [blocks,setblocks]=useState([])
   const [selectedBlock,setselectedBlock]=useState(null)
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     fetchblocks();
   }, [])
@@ -14,25 +16,36 @@ function RecentBlock() {
   }, [blocks])
   
   const fetchblocks=async()=>{
-    const response=await Axios('https://blockstream.info/api/blocks');
-    setblocks(response.data)    
+    setIsLoading(true);
+    try {
+      const response = await Axios('https://blockstream.info/api/blocks');
+      setblocks(response.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }   
   }
   return (
     <div className="Main">
-      <h5>Recent Blocks</h5>
+      
+        
+        {isLoading ? (
+        <div className="spinner"></div>
+      ) : (
+<>
+        <h5>Recent Blocks</h5>
         <div className="head">
             <h4>Height</h4>
             <p>Timestamp</p>
             <p>Transaction</p>
             <p>Size</p>
             <p>Weight</p>
-
         </div>
-        
-      {
-        blocks && blocks.map(block=>{
-          return(
-            <Link style={{ textDecoration: 'none' }} key={block.id} to={`/block/${block.id}`}>
+
+        {blocks &&
+        blocks.map((block) => (
+          <Link style={{ textDecoration: 'none' }} key={block.id} to={`/block/${block.id}`}>
             <div className="block">
               <h4>{block.height}</h4>
               <p>{block.timestamp}</p>
@@ -42,11 +55,9 @@ function RecentBlock() {
             </div>
           </Link>
           
-          )
-
-        })
-        
-      }
+        ))}
+        </>
+      )}
       
     </div>
  );

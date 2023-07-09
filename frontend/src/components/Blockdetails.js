@@ -5,6 +5,8 @@ import Axios from 'axios';
 function BlockDetails() {
   const { blockId } = useParams();
   const [block, setBlock] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   useEffect(() => {
     console.log(blockId);
@@ -12,10 +14,12 @@ function BlockDetails() {
   }, [blockId]);
 
   const fetchBlockInfo = async () => {
-    
+    setIsLoading(true);
         const response = await Axios(`https://blockstream.info/api/block/${blockId}`);
         setBlock(response.data);
         console.log(response.data)
+    setIsLoading(false);
+
       
   };
   const handleCopyHash = () => {
@@ -29,6 +33,10 @@ function BlockDetails() {
 
   return (
     <>
+    {isLoading ? (
+        <div className="spinner"></div>
+      ) : (
+        <>
       
       {block ? (
         <div className='remarkabletxs'>
@@ -95,8 +103,10 @@ function BlockDetails() {
             
           </div>
         </div>
-      ):null}
-    </>
+      ):null}    
+    </>)
+     
+    }</>
   );
 }
 
