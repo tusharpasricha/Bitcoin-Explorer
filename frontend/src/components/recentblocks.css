@@ -7,7 +7,6 @@
     border-radius: 20px;
     padding-bottom: 20px;
     font-family: 'Pathway Extreme', sans-serif;
-    
 
 }
 .head{
@@ -65,6 +64,9 @@
     padding-right: 20px;
     cursor: pointer;
 }
+.eachtxs p{
+  overflow: hidden;
+}
 .eachtxs:hover{
     background-color: #254366
 
@@ -121,6 +123,20 @@ button.copy {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+  /* --------------------------------responsive */
+  @media (max-width : 800px){
+    .block{
+      background-color: #474bff;
+      font-size: 10px;
+
+    }
+    .Main{
+      width: 90%;
+    }
+    .remarkabletxs{
+      width: 90%;
+    }
   }
   
 
