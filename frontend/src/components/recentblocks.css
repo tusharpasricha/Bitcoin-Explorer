@@ -127,7 +127,6 @@ button.copy {
   /* --------------------------------responsive */
   @media (max-width : 800px){
     .block{
-      background-color: #474bff;
       font-size: 10px;
 
     }
