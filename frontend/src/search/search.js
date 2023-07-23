@@ -5,6 +5,7 @@ import "./search.css"
 
 const Search = ({ setSearchR }) => { // history is a prop provided by react-router-dom
   const [searchQuery, setSearchQuery] = useState('');
+  const [error,setError] = useState('');
 
   const navigate = useNavigate();
   const handleSearch = async () => {
@@ -30,7 +31,12 @@ const Search = ({ setSearchR }) => { // history is a prop provided by react-rout
           console.log(blockHash)
           const blockResult = await axios.get(`https://blockstream.info/api/block/${blockHash}`);
           navigate(`/block/${blockHash}`);
-        } }
+        }
+        else{
+          console.log('No matching block, transaction, or address found.');
+          setError('No matching block, transaction, or address found.');
+        }
+       }
         
         else {
           console.log("SEARCH QUERY IS NOT HASH AND HEIGHT")
@@ -41,18 +47,30 @@ const Search = ({ setSearchR }) => { // history is a prop provided by react-rout
         }
     }catch(error){
       console.log('No matching block, transaction, or address found.');
+      setError('No matching block, transaction, or address found.');
+
     }
   }
     
   };
 
+  const handleInputFocus = () => {
+    setError(''); // Hide the error when the input gains focus
+  };
+
+
   return (
     <>
       <div className='searchbar'>
         <div class="search">
+        <div className='errorline'>
+            {error}
+          </div>
         <div class="search-box">
+          
           <div class="search-field">
             <input placeholder='Search by Block Height, Block Hash or Transaction Id'
+            onFocus={handleInputFocus}
             type='text'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)} class="input" 
@@ -65,6 +83,7 @@ const Search = ({ setSearchR }) => { // history is a prop provided by react-rout
               </button>
             </div>
           </div>
+          
         </div>
       </div>
       </div>

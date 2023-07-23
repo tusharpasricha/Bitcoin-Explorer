@@ -42,6 +42,10 @@ function TransactionDescription() {
     fetchTransaction();
   }, [description]);
 
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[location])
+
   const handleCommentClick = () => {
     if (isLoggedIn) {
       // navigate to user's profile page
@@ -60,6 +64,12 @@ function TransactionDescription() {
 
       <div className="txdesc">
       <h2>{hash}</h2>
+      
+      <div className="txdesctop">
+        
+        {/* <h3>{description}</h3> */}
+        {title}
+        </div> 
         <div className="remarkabletxs">
           <div className="eachtxs">
             <h5>Transaction ID </h5>
@@ -126,11 +136,6 @@ function TransactionDescription() {
           </div>
         </div>
 
-        <div className="txdesctop">
-        
-        {/* <h3>{description}</h3> */}
-        {title}
-        </div> 
 
       </div>
 
