@@ -10,7 +10,7 @@ const { db } = require('./models/User');
 const app = express();
 // db
 mongoose
-  .connect(process.env.D)
+  .connect("mongodb+srv://tusharpasricha:ixGHTrTB2aXR0hOn@cluster0.cufruka.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log('DB Connected'));
 //middlewares
 app.use(bodyParser.json());
