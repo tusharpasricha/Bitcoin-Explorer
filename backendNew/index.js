@@ -18,7 +18,11 @@ mongoose
   .then(() => console.log('DB Connected'));
 //middlewares
 app.use(bodyParser.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://bitcoin-explorer-tusharpasricha.vercel.app',
+};
+app.use(cors(corsOptions));
 //routes middleware
 app.use('/api', authRoutes);
 const port = process.env.PORT || 8000;
