@@ -40,7 +40,9 @@ exports.comments = (req,res,next) =>{
 }
 
 exports.getAllComments = (req, res, next) => {
-  Comment.find()
+  const transactionId = req.params.transactionId;
+
+  Comment.find({transaction:transactionId})
     .then(comments => {
       res.status(200).json({
         success: true,

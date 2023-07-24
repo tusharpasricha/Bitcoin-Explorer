@@ -55,6 +55,7 @@
 
 }
 .eachtxs{
+
     background-color: rgba(34, 34, 34, 0.76);
     width: 90%;
     margin:1px 20px ;
@@ -63,6 +64,7 @@
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
+    align-items: center;
 }
 .eachtxs p{
   overflow: hidden;
@@ -97,26 +99,7 @@
     
     
 }
-button.copy {
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    color: #999;
-    cursor: pointer;
-  }
-  
-  button.copy:before {
-    content: "\e61d"; /* Unicode character for copy symbol */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-    margin-right: 5px;
-  }
-  
-  button.copy:hover {
-    color: #000;
-  }
+
 
   .commentbox{
     display: flex;
@@ -137,6 +120,20 @@ button.copy {
       width: 90%;
     }
   }
+
+/* -------------------------------------------copy button */
+  button.copy {
+    /* background-color: blue; */
+    /* background: transparent; */
+    /* border: none; */
+    font-size: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px 10px;
+    margin-left: 10px;
+  }
+  
+  
   
 
 

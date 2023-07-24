@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -18,9 +19,9 @@ function TransactionDescription() {
   console.log("isLoggedin" + isLoggedIn);
 
   const { description, title, hash } = useParams();
-  console.log("i am desc" + description);
-  console.log("i am title" + title);
-  console.log("i am hash" + hash);
+  // console.log("i am desc" + description);
+  // console.log("i am title" + title);
+  // console.log("i am hash" + hash);
 
   // hash-->title
   // description--->hash
@@ -56,6 +57,14 @@ function TransactionDescription() {
       navigation("/login" ,{state : {title:title ,hash:hash ,description:description}});
     }
   };
+  const handleCopyTxid = () => {
+    navigator.clipboard.writeText(transaction.txid);
+    alert(`Copied to clipboard!`);
+  };
+  const handleCopyBlockHash = () => {
+    navigator.clipboard.writeText(transaction.status.block_hash);
+    alert(`Copied to clipboard!`);
+  };
 
   return (
     <div>
@@ -71,9 +80,11 @@ function TransactionDescription() {
         {title}
         </div> 
         <div className="remarkabletxs">
+        <p> <Link style={{ color:'white' , alignItems:'left'}} to="/">Back</Link></p>
+
           <div className="eachtxs">
             <h5>Transaction ID </h5>
-            <p> {transaction?.txid}</p>
+            <p> {transaction?.txid}<button className="copy"  onClick={handleCopyTxid}>copy</button></p>
           </div>
 
           <div className="eachtxs">
@@ -127,7 +138,7 @@ function TransactionDescription() {
 
           <div className="eachtxs">
             <h5> Block Hash: </h5>
-            <p> {transaction?.status.block_hash}</p>
+            <p> {transaction?.status.block_hash}<button className="copy"  onClick={handleCopyBlockHash}>copy</button></p>
           </div>
 
           <div className="eachtxs">
@@ -152,7 +163,7 @@ function TransactionDescription() {
           Log in to comment
         </button>
       )}
-      <CommentList/>
+      <CommentList transaction={description}/>
       
     </div>
 

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import "./CommentList.css"
 
-const CommentList = () => {
+const CommentList = (props) => {
   const [comments, setComments] = useState([]);
-
+  const transactionId = props.transaction;
   // Fetch comments from the server
   useEffect(() => {
-    fetchComments();
-  }, []);
+    fetchComments(transactionId);
+  }, [transactionId]);
 
   // Fetch comments function
-  const fetchComments = async () => {
-    console.log("fetching comments")
+  const fetchComments = async (transactionId) => {
+    console.log("fetching comments"+transactionId)
     try {
-      const response = await fetch('http://localhost:8000/api/getAllComments');
+      const response = await fetch(`http://localhost:8000/api/getAllComments/${transactionId}`);
       const data = await response.json();
       setComments(data.comments);
     } catch (error) {

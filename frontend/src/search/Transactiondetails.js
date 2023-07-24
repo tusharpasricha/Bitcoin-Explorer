@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TransactionDetails = ({SearchR }) => {
+  const handleCopyTxid = () => {
+    navigator.clipboard.writeText(SearchR.txid);
+    alert(`Copied to clipboard!`);
+  };
+  const handleCopyBlockHash = () => {
+    navigator.clipboard.writeText(SearchR.status.block_hash);
+    alert(`Copied to clipboard!`);
+  };
   return (
     <>
     {console.log(SearchR)}
@@ -13,7 +21,7 @@ const TransactionDetails = ({SearchR }) => {
                 <p> <Link style={{ color:'white' , alignItems:'left'}} to="/">Back</Link></p>
                         <div className='eachtxs'>
                         <h5>Transaction ID </h5>
-                        <p> {SearchR.txid}</p>
+                        <p> {SearchR.txid}<button className="copy"  onClick={handleCopyTxid}>copy</button></p>
                         </div>
 
                         <div className='eachtxs'>
@@ -71,7 +79,7 @@ const TransactionDetails = ({SearchR }) => {
 
                         <div className='eachtxs'>
                         <h5> Block Hash: </h5>
-                        <p> {SearchR?.status.block_hash}</p>
+                        <p> {SearchR?.status.block_hash}<button className="copy"  onClick={handleCopyBlockHash}>copy</button></p>
                         </div>
 
                         <div className='eachtxs'>

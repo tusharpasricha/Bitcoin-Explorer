@@ -6,7 +6,7 @@ const { signup, signin, comments,getAllComments } = require('../controllers/auth
 router.post('/signup', signup);
 router.post('/signin', signin);
 router.post('/comments', comments);
-router.get('/getAllComments', getAllComments);
+router.get('/getAllComments/:transactionId', getAllComments);
 
 
 

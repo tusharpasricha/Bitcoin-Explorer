@@ -43,7 +43,7 @@ function BlockDetails() {
            <p> <Link style={{ color:'white' , alignItems:'left'}} to="/">Back</Link></p>
            <div className='eachtxs'>
             <h5>Hash: </h5>
-            <p> {block.id}<button className="copy"  onClick={handleCopyHash}><i className="fas fa-copy"></i></button></p>
+            <p> {block.id}<button className="copy"  onClick={handleCopyHash}>copy</button></p>
             
           </div>
           <div className='eachtxs'>
@@ -98,8 +98,7 @@ function BlockDetails() {
           </div>
           <div className='eachtxs'>
             <h5>Previous Block Hash:  </h5>
-            <p> {block.previousblockhash}<button className="copy"  onClick={handleCopyPrevHash}><i className="fas fa-copy"></i>
-</button></p>
+            <p> {block.previousblockhash}<button className="copy"  onClick={handleCopyHash}>copy</button></p>
             
           </div>
         </div>
