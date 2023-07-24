@@ -41,6 +41,9 @@ exports.comments = (req,res,next) =>{
 
 exports.getAllComments = (req, res, next) => {
   const transactionId = req.params.transactionId;
+  res.setHeader('Access-Control-Allow-Origin', 'https://bitcoin-explorer-tusharpasricha.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   Comment.find({transaction:transactionId})
     .then(comments => {
