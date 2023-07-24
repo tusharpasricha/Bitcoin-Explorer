@@ -13,7 +13,6 @@ mongoose
   .connect(process.env.D,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
   })
   .then(() => console.log('DB Connected'));
 //middlewares
