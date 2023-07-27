@@ -7,7 +7,10 @@ const Signup = () => {
 
     const [error, setError] = useState('');
     const navigation = useNavigate();
+    const handlelogin=()=>{
+        navigation('/login',{state : {title:"empty" ,hash:"empty" ,description:"empty"}})
     
+      }
 
 
     const submitHandler = async (e) => {
@@ -72,7 +75,7 @@ const Signup = () => {
                     <label>Confirm Password</label>
                     <input type="password" name="password_confirmation" />
                     <input type="submit" value="Sign up" />
-                    <p className='link'>Already Have an account <Link to="/login">Login</Link></p>
+                    <p className='link'>Already Have an account <p onClick={handlelogin} >Login</p></p>
                 </form>
             </section>
         </div>
