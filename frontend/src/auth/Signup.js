@@ -47,7 +47,7 @@ const Signup = () => {
             // handle response
             if (response.ok) {
                 // sign-up successful, redirect to login page or do something else
-                navigation("/")
+                navigation('/login',{state : {title:location.state.title ,hash:location.state.hash,description:location.state.description}})
                 console.log("Sign up successful");
                 alert("Sign Up Successful, Now you can LOGIN")
             } else {
