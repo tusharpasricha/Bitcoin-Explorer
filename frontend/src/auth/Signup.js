@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
 
@@ -7,8 +7,16 @@ const Signup = () => {
 
     const [error, setError] = useState('');
     const navigation = useNavigate();
+    const location = useLocation();
+
+
+    // const description = location.state.title;
+    // const hash = location.state.description;
+    // const title = location.state.hash;
+    // console.log(description)
+    // console.log("reciede"+location.state.title);
     const handlelogin=()=>{
-        navigation('/login',{state : {title:"empty" ,hash:"empty" ,description:"empty"}})
+        navigation('/login',{state : {title:location.state.title ,hash:location.state.hash,description:location.state.description}})
     
       }
 
@@ -75,7 +83,7 @@ const Signup = () => {
                     <label>Confirm Password</label>
                     <input type="password" name="password_confirmation" />
                     <input type="submit" value="Sign up" />
-                    <p className='link'>Already Have an account <p onClick={handlelogin} >Login</p></p>
+                    <p className='link'>Already Have an account <span onClick={handlelogin} >Login</span></p>
                 </form>
             </section>
         </div>

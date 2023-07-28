@@ -91,7 +91,9 @@
       background: var(--buttonColor);
       color: #fff;   
   }
-  
+  form span{
+    color: rgb(32, 32, 243);
+  }
   .loading {
       width: 30%;
       text-align: center;

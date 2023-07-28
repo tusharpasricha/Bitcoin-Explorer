@@ -15,6 +15,11 @@ const Login = () => {
     const title = location.state.hash;
     console.log("reciede"+location.state.title);
 
+    const handlesignup=()=>{
+        navigation('/signup',{state : {title:description ,hash:title ,description:hash}})
+    
+      }
+
     const submitHandler = async (e) => {
         setLoading(true);
         e.preventDefault();
@@ -65,7 +70,7 @@ const Login = () => {
 
 
                     <input type="submit" value="Login" />
-                    <p className='link'>Want to signup <Link to="/signup">Signup</Link></p>
+                    <p className='link'>Want to <span onClick={handlesignup} >Signup</span></p>
                 </form>
             </section>
         </div>
