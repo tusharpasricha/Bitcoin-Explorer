@@ -59,14 +59,15 @@ const Login = () => {
             <section className='login'>
                
                 <form onSubmit={submitHandler}>
+                    <div style={{paddingBottom: "15px"}} >Test email & pass are present by default</div>
                     {error && <div className='error'>{error}</div>}
                     {loading && <div className='error'>Loading...</div>}
                     <label>Email</label>
-                    <input type="email" name="email" />
+                    <input defaultValue={"tush@gmail.com"} type="email" name="email" />
 
 
                     <label>Password</label>
-                    <input type="password" name="password" />
+                    <input defaultValue={"123456"} type="password" name="password" />
 
 
                     <input type="submit" value="Login" />
