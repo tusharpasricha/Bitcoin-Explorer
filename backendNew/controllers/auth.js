@@ -156,7 +156,7 @@ exports.signin = (req, res) => {
           user._id,
           3600
         );
-        jwt.verify(access_token, "tusharpasricha", (err,
+        jwt.verify(access_token, process.env.TOKEN_SECRET, (err,
           decoded) => {
           if (err) {
             return res.status(500).json({ erros: err });
