@@ -9,7 +9,7 @@ export const CommentBox = (props) => {
     const transaction = props.transaction;
     console.log(comment,email,transaction)
     if(comment) {
-      const response = await fetch('http://localhost:8000/api/comments', {
+      const response = await fetch('https://bitcoin-explorer-backend.vercel.app/api/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

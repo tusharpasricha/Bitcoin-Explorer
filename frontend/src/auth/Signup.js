@@ -38,7 +38,7 @@ const Signup = () => {
         }
         else{
             // make a POST request to sign up user
-         const response = await fetch("http://localhost:8000/api/signup", {
+         const response = await fetch("https://bitcoin-explorer-backend.vercel.app/api/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name,email,password,password_confirmation }),
