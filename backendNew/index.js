@@ -12,7 +12,7 @@ const app = express();
 
 
 mongoose
-  .connect(process.env.D,{
+  .connect("mongodb+srv://tusharpasricha:ixGHTrTB2aXR0hOn@cluster0.cufruka.mongodb.net/?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
