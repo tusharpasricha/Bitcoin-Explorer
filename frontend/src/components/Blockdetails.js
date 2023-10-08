@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -22,7 +22,10 @@ function BlockDetails() {
 
       
   };
+
+  //const hashRef = useRef(null);
   const handleCopyHash = () => {
+    //hashRef.current?.select(); //cant use ref with p
     navigator.clipboard.writeText(block.id);
     alert(`Copied to clipboard!`);
   };
@@ -43,7 +46,8 @@ function BlockDetails() {
            <p> <Link style={{ color:'white' , alignItems:'left'}} to="/">Back</Link></p>
            <div className='eachtxs'>
             <h5>Hash: </h5>
-            <p> {block.id}<button className="copy"  onClick={handleCopyHash}>copy</button></p>
+            <p > {block.id}
+            <button className="copy"  onClick={handleCopyHash}>copy</button></p>
             
           </div>
           <div className='eachtxs'>
