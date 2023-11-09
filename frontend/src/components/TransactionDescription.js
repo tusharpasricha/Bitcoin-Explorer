@@ -58,12 +58,12 @@ function TransactionDescription() {
     }
   };
   const handleCopyTxid = () => {
-    navigator.clipboard.writeText(transaction.txid);
-    alert(`Copied to clipboard!`);
+    navigator.clipboard.writeText(transaction.txid).then(()=>{alert(`Copied to clipboard!`)})
+    
   };
   const handleCopyBlockHash = () => {
-    navigator.clipboard.writeText(transaction.status.block_hash);
-    alert(`Copied to clipboard!`);
+    navigator.clipboard.writeText(transaction.status.block_hash).then(()=>{alert(`Copied to clipboard!`)});
+    
   };
 
   return (

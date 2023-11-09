@@ -23,15 +23,37 @@ function BlockDetails() {
       
   };
 
-  //const hashRef = useRef(null);
   const handleCopyHash = () => {
-    //hashRef.current?.select(); //cant use ref with p
-    navigator.clipboard.writeText(block.id);
-    alert(`Copied to clipboard!`);
+    if (block && block.id) {
+      try {
+        navigator.clipboard.writeText(block.id).then(() => {
+          alert(`Hash copied to clipboard!`);
+        }).catch((error) => {
+          console.error("Copy failed:", error);
+          alert(`Failed to copy hash to clipboard.`);
+        });
+      } catch (error) {
+        console.error("Clipboard API not available:", error);
+      }
+    } else {
+      alert(`Hash is not available for copying.`);
+    }
   };
   const handleCopyPrevHash = () => {
-    navigator.clipboard.writeText(block.previousblockhash);
-    alert(`Copied to clipboard!`);
+    if (block && block.previousblockhash) {
+      try {
+        navigator.clipboard.writeText(block.previousblockhash).then(() => {
+          alert(`Previous Block Hash copied to clipboard!`);
+        }).catch((error) => {
+          console.error("Copy failed:", error);
+          alert(`Failed to copy Previous Block Hash to clipboard.`);
+        });
+      } catch (error) {
+        console.error("Clipboard API not available:", error);
+      }
+    } else {
+      alert(`Previous Block Hash is not available for copying.`);
+    }
   };
 
   return (
