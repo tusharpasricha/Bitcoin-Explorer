@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -102,7 +102,7 @@ function BlockDetails() {
           </div>
           <div className='eachtxs'>
             <h5>Previous Block Hash:  </h5>
-            <p> {block.previousblockhash}<button className="copy"  onClick={handleCopyHash}>copy</button></p>
+            <p> {block.previousblockhash}<button className="copy"  onClick={handleCopyPrevHash}>copy</button></p>
             
           </div>
         </div>
