@@ -11,7 +11,7 @@ function BlockDetails() {
   useEffect(() => {
     console.log(blockId);
     fetchBlockInfo();
-  }, [blockId]);
+  }, [blockId ]);
 
   const fetchBlockInfo = async () => {
     setIsLoading(true);
@@ -19,8 +19,6 @@ function BlockDetails() {
         setBlock(response.data);
         console.log(response.data)
     setIsLoading(false);
-
-      
   };
 
   const handleCopyHash = () => {

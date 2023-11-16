@@ -15,35 +15,5 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
-/* .searchbar{
-    display: flex;
-    width: 45%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: space-around;
-    align-items: center;
-}
-.searchbar input{
-    width: 90%;
-    background-color:#EADED9;
-    
-    height: 5vh;
-    border-radius: 15px;
-    padding-left: 15px;
-} */
-.navbar2{
-    background-color: aliceblue;
-}
-/* .searchbar button{
-   height: 35px;
-   border-radius: 10px;
-   cursor: pointer;
 
 
-}
-.searchbar button:hover{
-    background-color: #254366;
-    color: white;
-    border-radius: 15px;
-
-} */

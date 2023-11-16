@@ -5,15 +5,12 @@ import React,{useState,useEffect} from 'react';
 
 function RecentBlock() {
   const [blocks,setblocks]=useState([])
-  const [selectedBlock,setselectedBlock]=useState(null)
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchblocks();
   }, [])
-  useEffect(() => {
-    console.log(blocks)
-  }, [blocks])
+  
   
   const fetchblocks=async()=>{
     setIsLoading(true);
@@ -28,8 +25,6 @@ function RecentBlock() {
   }
   return (
     <div className="Main">
-      
-        
         {isLoading ? (
         <div className="spinner"></div>
       ) : (

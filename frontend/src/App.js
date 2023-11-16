@@ -40,9 +40,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/block/:blockId" element={<BlockDetails />} />
           <Route path="/transactions/:title/:hash/:description" element={<TransactionDescription />} />
-
           <Route path="/tx/:query" element={<TransactionDetails SearchR={SearchR} />} />
-
         </Routes>
       </BrowserRouter>
     </div>

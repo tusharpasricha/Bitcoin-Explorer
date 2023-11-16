@@ -36,11 +36,6 @@ const Remarkabletxs = () => {
     navigate(`/transactions/${encodeURIComponent(transaction.description)}/${encodeURIComponent(transaction.title)}/${encodeURIComponent(transaction.hash)}`);
   };
 
-  // const handleCopyTxid = (transaction) => {
-  //   navigator.clipboard.writeText(transaction.txid);
-  //   alert(`Copied to clipboard!`);
-  // };
-
   return (
     <div className='remarkabletxs'>
       <p>Remarkable Transactions</p>
@@ -48,7 +43,6 @@ const Remarkabletxs = () => {
         <div className='eachtxs' key={transaction.hash} onClick={() => handleTransactionClick(transaction)}>
           <h3>{transaction.title}</h3>
           <p>{transaction.hash} </p>
-          {/* <button className="copy"  onClick={()=>handleCopyTxid(transaction)}> copy </button> */}
         </div>
       ))}
     </div>

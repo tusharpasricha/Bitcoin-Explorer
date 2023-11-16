@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link , useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import '../staticComponents/navbar.css'
 import { useLocation } from 'react-router-dom';
 import { useParams } from "react-router-dom";
