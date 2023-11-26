@@ -23,6 +23,25 @@ function RecentBlock() {
       setIsLoading(false);
     }   
   }
+
+  function timestampConvertor(ts){
+    const unixTimestamp = ts 
+    const timestampInMilliseconds = unixTimestamp * 1000;
+    const date = new Date(timestampInMilliseconds);
+    const timeZone = "Asia/Kolkata";
+    const options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZone,
+    };
+    const formattedDateTime = date.toLocaleString("en-US", options);
+    return formattedDateTime
+  }
+  
   return (
     <div className="Main">
         {isLoading ? (
@@ -34,8 +53,8 @@ function RecentBlock() {
             <h4>Height</h4>
             <p>Timestamp</p>
             <p>Transaction</p>
-            <p>Size</p>
-            <p>Weight</p>
+            <p>Size(B)</p>
+            <p>Weight(WU)</p>
         </div>
 
         {blocks &&
@@ -43,7 +62,7 @@ function RecentBlock() {
           <Link style={{ textDecoration: 'none' }} key={block.id} to={`/block/${block.id}`}>
             <div className="block">
               <h4>{block.height}</h4>
-              <p>{block.timestamp}</p>
+              <p>{ timestampConvertor(block.timestamp)}</p>
               <p>{block.tx_count}</p>
               <p>{block.size}</p>
               <p>{block.weight}</p>

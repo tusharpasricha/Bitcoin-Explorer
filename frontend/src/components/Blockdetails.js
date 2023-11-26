@@ -54,6 +54,24 @@ function BlockDetails() {
     }
   };
 
+  function timestampConvertor(ts){
+    const unixTimestamp = ts 
+    const timestampInMilliseconds = unixTimestamp * 1000;
+    const date = new Date(timestampInMilliseconds);
+    const timeZone = "Asia/Kolkata";
+    const options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZone,
+    };
+    const formattedDateTime = date.toLocaleString("en-US", options);
+    return formattedDateTime
+  }
+
   return (
     <>
     {isLoading ? (
@@ -77,7 +95,7 @@ function BlockDetails() {
           </div>
           <div className='eachtxs'>
             <h5> Timestamp: </h5>
-            <p> {block.timestamp}</p>
+            <p> {timestampConvertor( block.timestamp)}</p>
             
           </div>
           <div className='eachtxs'>
@@ -86,12 +104,12 @@ function BlockDetails() {
              
           </div>
           <div className='eachtxs'>
-            <h5>Size:  </h5>
+            <h5>Size(B):  </h5>
             <p> {block.size}</p>
             
           </div>
           <div className='eachtxs'>
-            <h5>Weight:  </h5>
+            <h5>Weight(WU):  </h5>
             <p> {block.weight}</p>
             
           </div>

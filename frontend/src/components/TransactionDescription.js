@@ -113,12 +113,12 @@ function TransactionDescription() {
           </div>
 
           <div className="eachtxs">
-            <h5> Size: </h5>
+            <h5> Size(B): </h5>
             <p> {transaction?.size}</p>
           </div>
 
           <div className="eachtxs">
-            <h5> Weight:</h5>
+            <h5> Weight(WU):</h5>
             <p> {transaction?.weight}</p>
           </div>
 
