@@ -33,7 +33,7 @@ const Login = () => {
             return setError('Some Field is empty');
         }
         else{
-            const response = await fetch('https://bitcoin-explorer-backend.vercel.app/api/signin', {
+            const response = await fetch('/api/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

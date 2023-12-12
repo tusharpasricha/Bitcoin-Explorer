@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+//const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth');
 const connectDB = require('./db');
 
 const app = express();
+//app.use(cors());
 const port = process.env.PORT || 8000;
 
 connectDB();
@@ -21,7 +22,7 @@ connectDB();
 
 
 app.use(bodyParser.json());
-app.use(cors());
+
 app.use('/api', authRoutes);
 app.listen(port, () => {
   console.log(`Server is running on ${port}`)

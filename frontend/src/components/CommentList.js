@@ -13,7 +13,9 @@ const CommentList = (props) => {
   const fetchComments = async (transactionId) => {
     console.log("fetching comments"+transactionId)
     try {
-      const response = await fetch(`https://bitcoin-explorer-backend.vercel.app/api/getAllComments/${transactionId}`);
+      // const response = await fetch(`https://bitcoin-explorer-backend.vercel.app/api/getAllComments/${transactionId}`);
+      const response = await fetch(`/api/getAllComments/${transactionId}`);
+
       const data = await response.json();
       setComments(data.comments);
     } catch (error) {
