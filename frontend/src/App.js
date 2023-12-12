@@ -3,16 +3,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from './staticComponents/navbar';
 import Footer from './staticComponents/footer';
-import Remarkabletxs from './components/remarkabletxs';
+import { Bitcoin } from './staticComponents/bitcoin';
+
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+
 import Search from './search/search';
+import TransactionDetails from './search/Transactiondetails'
+
+import RecentBlock from './components/recentblocks';
+import Remarkabletxs from './components/remarkabletxs';
+
 import TransactionDescription from './components/TransactionDescription';
 import BlockDetails from './components/Blockdetails';
-import TransactionDetails from './search/Transactiondetails'
+
+
+
 import './App.css';
-import RecentBlock from './components/recentblocks';
-import { Bitcoin } from './staticComponents/bitcoin';
+
 
 
 function App() {
