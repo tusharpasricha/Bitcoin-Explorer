@@ -1,10 +1,12 @@
-import React from 'react'
+import React , {useState} from 'react'
 import './CommentBox.css'
 export const CommentBox = (props) => {
+  const [commentInput, setCommentInput] = useState('');
 
   const submithandler=async(e)=>{
     e.preventDefault();
-    const comment = e.target.comment.value;
+    //const comment = e.target.comment.value;
+    const comment = commentInput;
     const email = props.email;
     const transaction = props.transaction;
     console.log(comment,email,transaction)
@@ -22,10 +24,14 @@ export const CommentBox = (props) => {
             }
             if (response.ok) {
                 console.log(data);
+                setCommentInput('');
             }
       
   }
   }
+  const handleInputChange = (e) => {
+    setCommentInput(e.target.value);
+  };
 
 
   return (
@@ -33,7 +39,7 @@ export const CommentBox = (props) => {
     <div className='commentbox'>
       <form  onSubmit={submithandler}  >
       <div class="formcontrol">
-      <input name="comment" class="input inputalt" placeholder="Add you views" required="" type="text"/>
+      <input name="comment" class="input inputalt" placeholder="Add you views" required="" type="text"value={commentInput} onChange={handleInputChange}/>
       <span class="inputborder inputborderalt"></span>
       </div>
 
