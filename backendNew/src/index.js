@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+require('dotenv').config({
+  path : '../.env'
+});
 
 const authRoutes = require('./routes/auth');
 const connectDB = require('./db');
@@ -10,6 +12,7 @@ const connectDB = require('./db');
 const app = express();
 app.use(cors());
 const port = process.env.PORT || 8000;
+
 
 connectDB();
 
