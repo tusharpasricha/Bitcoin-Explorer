@@ -1,5 +1,7 @@
 # Bitcoin-Explorer
-A bitcoin explorer with a feature where you can interact with like minded bitcoiners
+A bitcoin explorer with a feature where you can interact with like minded bitcoiners.
+Created using ReactJS and API integration, showcasing real-time data about the Bitcoin blockchain. 
+Developed user-friendly interface, search functionality along with user authentication and introduced comments system using Nodejs, Expressjs and MongoDB
 
 
 <img width="1710" alt="Screenshot 2023-11-09 at 4 40 26 PM" src="https://github.com/tusharpasricha/Bitcoin-Explorer/assets/72183174/bccac6fa-8c1e-4ede-b133-5305996987bf">
