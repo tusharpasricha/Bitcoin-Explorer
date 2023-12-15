@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config({
-  path : '../.env'
+  path : './.env'
 });
 
 const authRoutes = require('./src/routes/auth');
@@ -14,10 +14,9 @@ app.use(cors());
 const port = process.env.PORT || 8000;
 
 
-//connectDB();
 
 mongoose
-  .connect("mongodb+srv://tusharpasricha:ixGHTrTB2aXR0hOn@cluster0.cufruka.mongodb.net/?retryWrites=true&w=majority",{
+  .connect(process.env.MONGO,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
