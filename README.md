@@ -8,3 +8,5 @@ Developed user-friendly interface, search functionality along with user authenti
 
 <img width="1710" alt="Screenshot 2023-11-09 at 2 48 26 PM" src="https://github.com/tusharpasricha/Bitcoin-Explorer/assets/72183174/dba61871-ac5c-4af6-b0f3-e2867d2840c2">
 
+<img width="1136" alt="Screenshot 2023-12-15 at 2 17 58 PM" src="https://github.com/tusharpasricha/Bitcoin-Explorer/assets/72183174/45ef5221-f8d8-4739-b0fd-eabb27c74b7e">
+<img width="1136" alt="Screenshot 2023-12-15 at 2 18 08 PM" src="https://github.com/tusharpasricha/Bitcoin-Explorer/assets/72183174/2078aa3b-1b0f-4384-99b8-2dd76a4b4e97">
