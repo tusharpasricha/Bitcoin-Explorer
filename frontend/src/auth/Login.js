@@ -1,19 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, {useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 const Login = () => {
     const [error, setError] = useState('');
     const location = useLocation();
     const navigation = useNavigate();
     const [loading, setLoading] = useState(false);
-    const state = location.state;
     // hash-->title
     // description--->hash
-    // title------>description ---->dontknowwhy
+    // title------>description 
     const description = location.state.title;
     const hash = location.state.description;
     const title = location.state.hash;
-    console.log("reciede"+location.state.title);
 
     const handlesignup=()=>{
         navigation('/signup',{state : {title:description ,hash:title ,description:hash}})

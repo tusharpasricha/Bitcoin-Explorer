@@ -15,17 +15,13 @@ function TransactionDescription() {
   const email = location?.state?.email || '';
   const isLoggedIn = location?.state?.isLoggedIn;
 
-  console.log("email" + email);
-  console.log("isLoggedin" + isLoggedIn);
+  console.log("email: " + email);
+  console.log("isLoggedin: " + isLoggedIn);
 
   const { description, title, hash } = useParams();
-  // console.log("i am desc" + description);
-  // console.log("i am title" + title);
-  // console.log("i am hash" + hash);
-
   // hash-->title
   // description--->hash
-  // title------>description ---->dontknowwhy
+  // title------>description 
 
   const [transaction, setTransaction] = useState(null);
 
@@ -53,7 +49,6 @@ function TransactionDescription() {
       console.log("you can comment");
     } else {
       // navigate to login page
-      console.log("to bepassed"+title);
       navigation("/login" ,{state : {title:title ,hash:hash ,description:description}});
     }
   };

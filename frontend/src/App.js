@@ -25,9 +25,9 @@ import './App.css';
 
 function App() {
   const [SearchR, setSearchR] = useState({});
-  useEffect(() => {
-    console.log('data', SearchR);
-  }, [SearchR]);
+  // useEffect(() => {
+  //   console.log('data', SearchR);
+  // }, [SearchR]);
  
   return (
     <div className="App">

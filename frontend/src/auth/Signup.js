@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate, useLocation} from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import React, {useState } from 'react';
+import { useNavigate, useLocation} from 'react-router-dom';
 
 
 const Signup = () => {
@@ -15,6 +14,7 @@ const Signup = () => {
     // const title = location.state.hash;
     // console.log(description)
     // console.log("reciede"+location.state.title);
+
     const handlelogin=()=>{
         navigation('/login',{state : {title:location.state.title ,hash:location.state.hash,description:location.state.description}})
     
@@ -31,7 +31,7 @@ const Signup = () => {
         const password = e.target.password.value;
         const password_confirmation = e.target.password_confirmation.value;
 
-        let uid;
+        
         if(!password || !password_confirmation || !name || !email)
         {
             return setError('Some Field is Empty');
