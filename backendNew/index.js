@@ -14,10 +14,9 @@ app.use(cors());
 const port = process.env.PORT || 8000;
 
 
-//connectDB();
 
 mongoose
-  .connect("mongodb+srv://tusharpasricha:ixGHTrTB2aXR0hOn@cluster0.cufruka.mongodb.net/?retryWrites=true&w=majority",{
+  .connect(process.env.MONGO,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
